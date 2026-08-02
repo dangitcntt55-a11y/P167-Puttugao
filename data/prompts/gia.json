@@ -1,0 +1,92 @@
+[
+  {
+    "id": 11,
+    "text": "nồi chiên không dầu giá bao nhiêu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["nồi chiên", "giá"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 12,
+    "text": "nồi chiên không dầu 5L giá rẻ nhất?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["nồi chiên", "5L", "giá rẻ"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 13,
+    "text": "so sánh giá nồi chiên không dầu ở Shopee vs Lazada?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["so sánh giá", "shopee", "lazada"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 14,
+    "text": "máy xay sinh tố giá rẻ dưới 500k?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["máy xay", "giá rẻ"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 15,
+    "text": "nồi cơm điện giá bao nhiêu là hợp lý?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["nồi cơm", "giá"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 16,
+    "text": "bộ nồi inox giá rẻ dưới 1 triệu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["nồi inox", "giá rẻ"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 17,
+    "text": "quạt điều hòa giá bao nhiêu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["quạt", "giá"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 18,
+    "text": "shop bán đồ gia dụng giá sỉ ở đâu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["giá sỉ"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 19,
+    "text": "so sánh giá nồi chiên Philips và Lock&Lock?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["so sánh giá", "Philips", "Lock&Lock"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 20,
+    "text": "máy hút bụi giá rẻ tốt nhất?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["máy hút bụi", "giá rẻ"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  }
+]

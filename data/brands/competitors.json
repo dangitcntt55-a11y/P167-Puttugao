@@ -1,0 +1,48 @@
+{
+  "competitors": [
+    {
+      "id": 3,
+      "name": "Sunhouse",
+      "name_variants": ["Sunhouse", "SUNHOUSE"],
+      "brand_type": "d2c",
+      "category": "đồ gia dụng",
+      "is_target": false,
+      "shopee_url": "https://shopee.vn/sunhouse_official",
+      "lazada_url": "https://www.lazada.vn/shop/sunhouse",
+      "website_url": "https://sunhouse.com.vn"
+    },
+    {
+      "id": 4,
+      "name": "Kangaroo",
+      "name_variants": ["Kangaroo", "KANGAROO"],
+      "brand_type": "d2c",
+      "category": "đồ gia dụng",
+      "is_target": false,
+      "shopee_url": "https://shopee.vn/kangaroo_official",
+      "lazada_url": "https://www.lazada.vn/shop/kangaroo",
+      "website_url": "https://kangaroo.com.vn"
+    },
+    {
+      "id": 5,
+      "name": "Philips",
+      "name_variants": ["Philips", "PHILIPS"],
+      "brand_type": "d2c",
+      "category": "đồ gia dụng",
+      "is_target": false,
+      "shopee_url": "https://shopee.vn/philips_official",
+      "lazada_url": "https://www.lazada.vn/shop/philips",
+      "website_url": "https://www.philips.com.vn"
+    },
+    {
+      "id": 6,
+      "name": "Tefal",
+      "name_variants": ["Tefal", "TEFAL"],
+      "brand_type": "d2c",
+      "category": "đồ gia dụng",
+      "is_target": false,
+      "shopee_url": "https://shopee.vn/tefal_official",
+      "lazada_url": "https://www.lazada.vn/shop/tefal",
+      "website_url": "https://www.tefal.com.vn"
+    }
+  ]
+}

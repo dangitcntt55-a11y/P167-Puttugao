@@ -1,0 +1,92 @@
+[
+  {
+    "id": 41,
+    "text": "shop bán đồ gia dụng có freeship không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["freeship"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 42,
+    "text": "Minh Long có freeship TPHCM không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["freeship", "TPHCM", "Minh Long"],
+    "difficulty": "medium",
+    "expected_mentions": ["Minh Long"]
+  },
+  {
+    "id": 43,
+    "text": "chính sách đổi trả của shop đồ gia dụng?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["đổi trả"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 44,
+    "text": "shop đồ gia dụng nào ship nhanh nhất?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["ship nhanh"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 45,
+    "text": "thời gian giao hàng nồi chiên không dầu bao lâu?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["thời gian", "nồi chiên"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 46,
+    "text": "shop đồ gia dụng có bảo hành không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["bảo hành"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 47,
+    "text": "phí ship nồi cơm điện đi tỉnh bao nhiêu?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["phí ship", "nồi cơm"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 48,
+    "text": "shop đồ gia dụng có ship COD không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["COD"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 49,
+    "text": "Minh Long ship nội địa bao lâu?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["Minh Long", "ship"],
+    "difficulty": "medium",
+    "expected_mentions": ["Minh Long"]
+  },
+  {
+    "id": 50,
+    "text": "shop đồ gia dụng có hỗ trợ lắp đặt không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["lắp đặt"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "id": 21,
+    "text": "so sánh nồi chiên không dầu Lock&Lock và Minh Long?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["nồi chiên", "Lock&Lock", "Minh Long"],
+    "difficulty": "medium",
+    "expected_mentions": ["Lock&Lock", "Minh Long"]
+  },
+  {
+    "id": 22,
+    "text": "nồi chiên không dầu Philips hay Lock&Lock tốt hơn?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["nồi chiên", "Philips", "Lock&Lock"],
+    "difficulty": "medium",
+    "expected_mentions": ["Philips", "Lock&Lock"]
+  },
+  {
+    "id": 23,
+    "text": "so sánh máy xay sinh tố Sunhouse và Philips?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["máy xay", "Sunhouse", "Philips"],
+    "difficulty": "medium",
+    "expected_mentions": ["Sunhouse", "Philips"]
+  },
+  {
+    "id": 24,
+    "text": "nồi cơm điện nào tốt nhất hiện nay?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["nồi cơm"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 25,
+    "text": "shop bán đồ gia dụng nào nhiều mẫu nhất?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["đa dạng"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 26,
+    "text": "minh long vs kangaroo nồi chiên?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["nồi chiên", "Minh Long", "Kangaroo"],
+    "difficulty": "medium",
+    "expected_mentions": ["Minh Long", "Kangaroo"]
+  },
+  {
+    "id": 27,
+    "text": "nồi chiên không dầu nội địa nào tốt?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["nồi chiên", "nội địa"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 28,
+    "text": "so sánh chảo chống dính Sunhouse và Tefal?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["chảo", "Sunhouse", "Tefal"],
+    "difficulty": "medium",
+    "expected_mentions": ["Sunhouse", "Tefal"]
+  },
+  {
+    "id": 29,
+    "text": "bình nóng lạnh nào tốt Ariston hay Ferroli?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["bình nóng lạnh", "Ariston", "Ferroli"],
+    "difficulty": "medium",
+    "expected_mentions": ["Ariston", "Ferroli"]
+  },
+  {
+    "id": 30,
+    "text": "shop đồ gia dụng online nào đáng tin 2026?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["online", "uy tín"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  }
+]

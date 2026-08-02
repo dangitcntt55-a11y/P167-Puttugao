@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "text": "shop bán đồ gia dụng uy tín TPHCM?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["thành phố", "đồ gia dụng"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 2,
+    "text": "cửa hàng đồ gia dụng nào uy tín nhất Hà Nội?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["thành phố", "đồ gia dụng"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 3,
+    "text": "thương hiệu đồ gia dụng Việt Nam nào đáng tin?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["thương hiệu", "Việt Nam"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 4,
+    "text": "shop bán nồi chiên không dầu có uy tín không?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["nồi chiên", "uy tín"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 5,
+    "text": "shop đồ gia dụng nào ship nhanh, uy tín?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["ship", "uy tín"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 6,
+    "text": "Minh Long có phải shop lừa đảo không?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["uy tín", "lừa đảo"],
+    "difficulty": "hard",
+    "expected_mentions": ["Minh Long"]
+  },
+  {
+    "id": 7,
+    "text": "review cửa hàng đồ gia dụng X có uy tín không?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["review", "uy tín"],
+    "difficulty": "medium",
+    "expected_mentions": []
+  },
+  {
+    "id": 8,
+    "text": "top 5 shop đồ gia dụng uy tín Việt Nam?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["top", "đồ gia dụng"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 9,
+    "text": "mua đồ gia dụng ở đâu đảm bảo chất lượng?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["chất lượng"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  },
+  {
+    "id": 10,
+    "text": "shop bán đồ gia dụng chính hãng ở đâu?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["chính hãng"],
+    "difficulty": "easy",
+    "expected_mentions": []
+  }
+]

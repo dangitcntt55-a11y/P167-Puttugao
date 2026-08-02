@@ -1,0 +1,25 @@
+{
+  "id": 2,
+  "name": "Lock&Lock",
+  "name_variants": ["Lock&Lock", "Lock and Lock", "locklock", "L&L"],
+  "brand_type": "d2c",
+  "category": "đồ gia dụng",
+  "is_target": false,
+  "shopee_url": "https://shopee.vn/locknlock_official",
+  "lazada_url": "https://www.lazada.vn/shop/lock-lock",
+  "website_url": "https://www.locknlock.com",
+  "knowledge_base": {
+    "price_table": {
+      "nồi chiên không dầu 5L": 1500000,
+      "bộ hộp đựng thực phẩm": 600000,
+      "bình nước 1L": 250000
+    },
+    "ship_policy": {
+      "freeship": "đơn từ 300k",
+      "nội địa": "2-4 ngày"
+    },
+    "rating": 4.8,
+    "n_reviews": 50000,
+    "verified_at": "2026-08-01"
+  }
+}
