@@ -3,7 +3,10 @@
 
 $ErrorActionPreference = 'Stop'
 
-$HookFile = '.git/hooks/pre-push'
+# Git on Windows needs a .cmd extension (or shebang pointing to bash) so the
+# runner knows to use cmd.exe. Plain "pre-push" with @echo off inside causes
+# "cannot spawn: No such file or directory" because Git picks sh.exe by default.
+$HookFile = '.git/hooks/pre-push.cmd'
 
 # Git on Windows spawns hooks via cmd.exe by default, so use a .cmd (batch)
 # script to avoid the "cannot spawn" error when bash is not on PATH.
