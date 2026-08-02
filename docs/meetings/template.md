@@ -1,0 +1,39 @@
+# Meeting Notes — YYYY-MM-DD
+
+## Thông tin
+- **Ngày**: YYYY-MM-DD
+- **Giờ**: HH:MM - HH:MM
+- **Ai tham dự**: Đăng, Lý, Khôi, Hải
+- **Loại meeting**: Sync / Planning / Demo / ...
+
+## Agenda
+
+1. ...
+2. ...
+3. ...
+
+## Nội dung thảo luận
+
+### Topic 1: ...
+- ...
+- Decision: ...
+
+### Topic 2: ...
+- ...
+- Decision: ...
+
+## Action items
+
+| # | Task | Owner | Deadline |
+|---|------|-------|----------|
+| 1 | ... | ... | YYYY-MM-DD |
+| 2 | ... | ... | YYYY-MM-DD |
+
+## Blocker
+
+1. ...
+
+## Next meeting
+
+- Ngày: YYYY-MM-DD
+- Agenda: ...

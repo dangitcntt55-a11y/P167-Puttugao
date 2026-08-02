@@ -1,12 +1,30 @@
-# Brands — Knowledge Base cho 2 brand demo + 4-6 đối thủ
+# Brands — Knowledge Base cho 2 brand demo + 6 đối thủ
 
 > **Format**: JSON với thông tin public dễ verify (URL Shopee/Lazada/web, bảng giá, FAQ, ship policy).
+> **Quyết định**: chọn ngành **điện tử** theo `docs/decisions/ADR-0004-brand-change.md`.
 
-## Chọn 2 brand (theo tiêu chí trong `GEO_AI_Agent_Ecommerce_VN.md` §9.5)
+## File trong folder này
 
-- 1 brand sàn (shop bán đa ngành hàng trên Shopee/Lazada/Tiki)
-- 1 brand D2C (có website riêng, content-driven)
-- Mỗi brand có 2-3 đối thủ trực tiếp
+| File | Mô tả | ID |
+|------|-------|----|
+| `brand_1_san_dmx.json` | Brand sàn target #1: **Điện Máy Xanh** | 1 |
+| `brand_2_d2c_samsung.json` | Brand D2C target #2: **Samsung Vietnam** | 2 |
+| `competitors.json` | 6 đối thủ: Nguyễn Kim, PICO, FPT Shop, CellphoneS, Apple VN, Xiaomi VN | 3-8 |
+| `_ARCHIVED_brand_1_d2c_minhlong.json` | (Đã archive — Minh Long, đồ gia dụng, xem ADR-0004) | - |
+| `_ARCHIVED_brand_2_d2c_locknlock.json` | (Đã archive — Lock&Lock, đồ gia dụng, xem ADR-0004) | - |
+
+## Chọn 2 brand (theo tiêu chí trong `GEO_AI_Agent_Ecommerce_VN.md` §3)
+
+- 1 brand sàn (multi-SKU, nhiều đối thủ): **Điện Máy Xanh**
+- 1 brand D2C (entity riêng, content-driven): **Samsung Vietnam**
+- Mỗi brand có 3 đối thủ trực tiếp cùng ngành hàng
+
+## Lý do chọn ngành điện tử
+
+- GEO gap rõ: Samsung VN được AI nhắc nhiều nhưng hay nói sai giá/policy VN → có gap để diagnose.
+- Hallucination risk cao về giá/ship (giá điện tử biến động liên tục → AI dễ sai).
+- Schema markup tốt → demo Schema Audit hiệu quả.
+- 6 đối thủ cùng ngành → tính SOV có ý nghĩa.
 
 ## Format Brand KB
 

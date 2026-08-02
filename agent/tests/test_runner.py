@@ -5,7 +5,7 @@ from agent.engines.base import BaseEngine, EngineResponse
 
 
 class MockEngine(BaseEngine):
-    ai_engine = "mock"
+    llm_engine = "mock"  # giả LLM để test
 
     def __init__(self, response_text: str = "Mock response"):
         self.response_text = response_text
@@ -17,7 +17,7 @@ class MockEngine(BaseEngine):
             model_version="mock-1.0",
             latency_ms=10,
             cost_usd=0.0,
-            ai_engine="mock",
+            llm_engine="mock",
         )
 
 
@@ -26,4 +26,6 @@ async def test_run_one():
     engine = MockEngine("Test response")
     response = await run_one(engine, "Test prompt")
     assert response.text == "Test response"
-    assert response.ai_engine == "mock"
+    assert response.llm_engine == "mock"
+    assert response.search_engine is None
+    assert response.engine_kind() == "llm"

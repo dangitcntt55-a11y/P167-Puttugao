@@ -1,0 +1,36 @@
+{
+  "id": 2,
+  "name": "Samsung Vietnam",
+  "name_variants": ["Samsung", "Samsung Vietnam", "Samsung VN", "samsungvietnam", "SAMSUNG"],
+  "brand_type": "d2c",
+  "category": "điện tử (điện thoại, TV, gia dụng)",
+  "is_target": true,
+  "shopee_url": "https://shopee.vn/samsung_official_store",
+  "lazada_url": "https://www.lazada.vn/shop/samsung-official",
+  "website_url": "https://www.samsung.com/vn",
+  "knowledge_base": {
+    "price_table": {
+      "galaxy_s24_ultra_256gb": 31990000,
+      "galaxy_s24_256gb": 22990000,
+      "galaxy_a55_5g_256gb": 9490000,
+      "galaxy_z_fold6_512gb": 41990000,
+      "tivi_qled_4k_65_inch": 29990000,
+      "tu_lanh_bespoke_488l": 24990000,
+      "may_giat_addwash_11kg": 16990000
+    },
+    "ship_policy": {
+      "freeship": "đơn từ 500k (toàn quốc)",
+      "noi_dia": "1-3 ngày nội thành HCM/HN, 3-7 ngày tỉnh",
+      "phi_ship": 0,
+      "sieu_toc": "Samsung Express: 2h nội thành HCM/HN",
+      "lap_dat_mien_phi": "Tivi >43 inch, máy lạnh, máy giặt"
+    },
+    "return_policy": "Đổi trả trong 7 ngày. Lỗi NSX đổi mới trong 30 ngày đầu.",
+    "warranty": "Galaxy S series: 12 tháng. Tivi QLED: 24 tháng. Tủ lạnh Bespoke: 24 tháng (10 năm máy nén).",
+    "rating": 4.7,
+    "n_reviews": 95000,
+    "shopee_rating": 4.8,
+    "shopee_n_orders": 850000,
+    "verified_at": "2026-08-02"
+  }
+}

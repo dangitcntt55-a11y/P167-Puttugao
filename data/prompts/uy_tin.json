@@ -1,92 +1,204 @@
 [
   {
-    "id": 1,
-    "text": "shop bán đồ gia dụng uy tín TPHCM?",
+    "id": "uy_tin_001",
+    "text": "Mua tivi ở đâu chính hãng, uy tín?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["thành phố", "đồ gia dụng"],
+    "tags": ["tivi", "chính hãng", "uy_tín"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh", "Samsung", "Nguyễn Kim"],
+    "applies_to_brands": [1, 2]
   },
   {
-    "id": 2,
-    "text": "cửa hàng đồ gia dụng nào uy tín nhất Hà Nội?",
+    "id": "uy_tin_002",
+    "text": "Cửa hàng điện máy nào uy tín nhất hiện nay?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["thành phố", "đồ gia dụng"],
+    "tags": ["điện máy", "uy_tín", "ranking"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "CellphoneS"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 3,
-    "text": "thương hiệu đồ gia dụng Việt Nam nào đáng tin?",
+    "id": "uy_tin_003",
+    "text": "Samsung có phải thương hiệu uy tín không?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["thương hiệu", "Việt Nam"],
+    "tags": ["thương hiệu", "Samsung", "uy_tín"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "Apple", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "uy_tin_004",
+    "text": "Mua đồ điện tử ở đâu cho chắc chắn, đảm bảo?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["đồ điện tử", "uy_tín"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "Nguyễn Kim"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "uy_tin_005",
+    "text": "Thương hiệu điện máy nào lớn nhất Việt Nam?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["thương hiệu", "top", "điện máy"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh", "Samsung", "FPT Shop"],
+    "applies_to_brands": [1, 2]
+  },
+
+  {
+    "id": "uy_tin_006",
+    "text": "Shop bán đồ điện máy uy tín tại Hà Nội?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["thành phố", "Hà Nội", "uy_tín"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "PICO"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 4,
-    "text": "shop bán nồi chiên không dầu có uy tín không?",
+    "id": "uy_tin_007",
+    "text": "Điện Máy Xanh có tốt không, có nên mua không?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["nồi chiên", "uy tín"],
+    "tags": ["uy_tín", "Điện Máy Xanh"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 5,
-    "text": "shop đồ gia dụng nào ship nhanh, uy tín?",
+    "id": "uy_tin_008",
+    "text": "Mua Samsung Galaxy chính hãng ở đâu tại Sài Gòn?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["ship", "uy tín"],
+    "tags": ["điện thoại", "Samsung", "chính hãng", "thành phố"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "CellphoneS"],
+    "applies_to_brands": [2, 1]
   },
   {
-    "id": 6,
-    "text": "Minh Long có phải shop lừa đảo không?",
+    "id": "uy_tin_009",
+    "text": "Trung tâm bảo hành Samsung chính hãng ở đâu?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["uy tín", "lừa đảo"],
+    "tags": ["bảo hành", "Samsung", "uy_tín"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "uy_tin_010",
+    "text": "Điện Máy Xanh hay FPT Shop uy tín hơn?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["so sánh", "uy_tín"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "uy_tin_011",
+    "text": "Top 5 hệ thống điện máy uy tín Việt Nam 2026?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["top", "ranking", "uy_tín"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "CellphoneS", "Nguyễn Kim"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "uy_tin_012",
+    "text": "Mua iPhone chính hãng ở đâu đảm bảo nhất?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["điện thoại", "chính hãng"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "CellphoneS"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "uy_tin_013",
+    "text": "Samsung có bền không, có nên tin dùng lâu dài?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["độ bền", "Samsung", "uy_tín"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "uy_tin_014",
+    "text": "Cửa hàng đồ điện tử nào bảo hành tốt nhất?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["bảo hành", "uy_tín"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "Samsung", "FPT Shop"],
+    "applies_to_brands": [1, 2]
+  },
+  {
+    "id": "uy_tin_015",
+    "text": "Đánh giá độ uy tín của Samsung Việt Nam hiện tại?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["Samsung", "uy_tín", "Vietnam"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple", "LG"],
+    "applies_to_brands": [2]
+  },
+
+  {
+    "id": "uy_tin_016",
+    "text": "Điện Máy Xanh có dính phốt hay rủi ro gì chưa?",
+    "group": "uy_tin",
+    "language": "vi",
+    "tags": ["scam", "uy_tín", "phốt"],
     "difficulty": "hard",
-    "expected_mentions": ["Minh Long"]
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 7,
-    "text": "review cửa hàng đồ gia dụng X có uy tín không?",
+    "id": "uy_tin_017",
+    "text": "Có nên tin Điện Máy Xanh không, hay vào Samsung Store riêng cho chắc?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["review", "uy tín"],
-    "difficulty": "medium",
-    "expected_mentions": []
+    "tags": ["so sánh", "uy_tín", "retailer"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh", "Samsung"],
+    "applies_to_brands": [1, 2]
   },
   {
-    "id": 8,
-    "text": "top 5 shop đồ gia dụng uy tín Việt Nam?",
+    "id": "uy_tin_018",
+    "text": "Điện Máy Xanh lừa đảo khách hàng có thật không?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["top", "đồ gia dụng"],
-    "difficulty": "easy",
-    "expected_mentions": []
+    "tags": ["lừa đảo", "uy_tín"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 9,
-    "text": "mua đồ gia dụng ở đâu đảm bảo chất lượng?",
+    "id": "uy_tin_019",
+    "text": "Galaxy S series có thật sự đáng tin cậy sau vài năm sử dụng?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["chất lượng"],
-    "difficulty": "easy",
-    "expected_mentions": []
+    "tags": ["Samsung", "Galaxy", "độ bền", "uy_tín"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 10,
-    "text": "shop bán đồ gia dụng chính hãng ở đâu?",
+    "id": "uy_tin_020",
+    "text": "Review khách quan về dịch vụ hậu mãi của Samsung Vietnam?",
     "group": "uy_tin",
     "language": "vi",
-    "tags": ["chính hãng"],
-    "difficulty": "easy",
-    "expected_mentions": []
+    "tags": ["hậu mãi", "review", "Samsung"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung"],
+    "applies_to_brands": [2]
   }
 ]

@@ -13,7 +13,7 @@ from agent.engines.base import BaseEngine, EngineResponse
 
 
 class TavilyEngine(BaseEngine):
-    ai_engine = "tavily"
+    search_engine = "tavily"
 
     def __init__(self):
         self.client = AsyncTavilyClient(api_key=settings.tavily_api_key)
@@ -49,5 +49,5 @@ class TavilyEngine(BaseEngine):
             latency_ms=latency_ms,
             cost_usd=cost,
             raw=response,
-            ai_engine=self.ai_engine,
+            search_engine=self.search_engine,
         )

@@ -7,7 +7,7 @@ from agent.engines.base import BaseEngine, EngineResponse
 
 
 class ChatGPTEngine(BaseEngine):
-    ai_engine = "chatgpt"
+    llm_engine = "chatgpt"
 
     def __init__(self, model: str = "gpt-4o-mini"):
         self.model = model
@@ -34,5 +34,5 @@ class ChatGPTEngine(BaseEngine):
             latency_ms=latency_ms,
             cost_usd=cost,
             raw=response.model_dump(),
-            ai_engine=self.ai_engine,
+            llm_engine=self.llm_engine,
         )

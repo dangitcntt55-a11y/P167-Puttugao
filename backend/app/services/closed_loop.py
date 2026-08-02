@@ -64,39 +64,60 @@ def classify_closed_loop(
 
 
 async def evaluate_task(session: AsyncSession, task_id: int) -> dict:
-    """Đánh giá closed-loop cho 1 task.
+    """Đánh giá closed-loop cho 1 task — thật, không mock.
 
-    Returns:
-        Dict với pre/post visibility, CI, result.
+    Flow:
+        1. Lấy task → có brand_id, prompt_ids (lưu trong action_payload).
+        2. Query pre_visibility: từ bảng stability_scores hoặc responses tại thời điểm pre.
+        3. Query post_visibility: từ responses mới nhất (sau khi re-scan đã chạy).
+        4. Tính bootstrap 95% CI cho diff.
+        5. Phân loại improved/no_evidence/regressed.
+        6. Update task.result, task.ci_lower, task.ci_upper.
     """
+    from sqlalchemy import select, and_
+    from app.db.models import Response, StabilityScore
+
     task = await session.get(Task, task_id)
     if not task:
         return {"error": "Task not found"}
 
-    # TODO: thực tế cần scan lại 3 lần × 4 AI để có post_samples
-    # Tạm thời trả về placeholder
-    pre_visibility = task.pre_visibility or 0.0
-    post_visibility = task.post_visibility or 0.0
-    diff = post_visibility - pre_visibility
+    # Lấy related prompt_ids từ task.action_payload
+    prompt_ids: list[int] = (task.action_payload or {}).get("prompt_ids", [])
+    if not prompt_ids:
+        return {"error": "Task has no prompt_ids in action_payload"}
 
-    # Mock CI (chưa có re-scan thật)
-    # TODO: thay bằng bootstrap_diff_ci khi có data thật
-    ci_lower = diff - 0.05
-    ci_upper = diff + 0.05
+    # Pre/post samples: visibility per (brand, prompt, llm_engine) từ N lần chạy
+    pre_window_start = task.created_at  # gần thời điểm tạo task
 
-    result = classify_closed_loop(pre_visibility, post_visibility, ci_lower, ci_upper)
-    task.ci_lower = ci_lower
-    task.ci_upper = ci_upper
+    async def collect_visibility(window_start, window_end):
+        """Lấy list visibility_rate per (prompt, llm_engine) trong khoảng thời gian."""
+        q = (
+            select(StabilityScore)
+            .where(
+                StabilityScore.brand_id == task.brand_id,
+                StabilityScore.prompt_id.in_(prompt_ids),
+                StabilityScore.computed_at >= window_start,
+                StabilityScore.computed_at < window_end,
+            )
+        )
+        result = await session.execute(q)
+        scores = result.scalars().all()
+        return [float(s.visibility_rate) for s in scores]
+
+    pre_samples = await collect_visibility(window_start=pre_window_start, window_end=task.completed_at or task.created_at)
+    post_samples = await collect_visibility(window_start=task.completed_at or task.created_at, window_end="now")
+
+    if not pre_samples or not post_samples:
+        return {"error": "Missing pre or post data — ensure re-scan has run"}
+
+    ci = bootstrap_diff_ci(pre_samples, post_samples)
+    result = classify_closed_loop(pre_visibility=sum(pre_samples) / len(pre_samples), post_visibility=sum(post_samples) / len(post_samples), ci_lower=ci[0], ci_upper=ci[1])
+
+    task.pre_visibility = sum(pre_samples) / len(pre_samples)
+    task.post_visibility = sum(post_samples) / len(post_samples)
+    task.ci_lower = ci[0]
+    task.ci_upper = ci[1]
     task.result = result
     await session.commit()
 
-    return {
-        "task_id": task_id,
-        "pre_visibility": pre_visibility,
-        "post_visibility": post_visibility,
-        "diff": diff,
-        "ci_lower": ci_lower,
-        "ci_upper": ci_upper,
-        "noise_floor": settings.noise_floor_pct / 100.0,
-        "result": result,
-    }
+    return {"task_id": task_id, "pre_visibility": task.pre_visibility, "post_visibility": task.post_visibility, "ci_lower": ci[0], "ci_upper": ci[1], "result": result}

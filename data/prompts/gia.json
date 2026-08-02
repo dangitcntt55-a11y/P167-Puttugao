@@ -1,92 +1,204 @@
 [
   {
-    "id": 11,
-    "text": "nồi chiên không dầu giá bao nhiêu?",
+    "id": "gia_001",
+    "text": "Giá tủ lạnh Samsung inverter 2026 bao nhiêu?",
     "group": "gia",
     "language": "vi",
-    "tags": ["nồi chiên", "giá"],
+    "tags": ["tủ lạnh", "Samsung", "giá"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
   },
   {
-    "id": 12,
-    "text": "nồi chiên không dầu 5L giá rẻ nhất?",
+    "id": "gia_002",
+    "text": "Galaxy S24 giá bao nhiêu tiền?",
     "group": "gia",
     "language": "vi",
-    "tags": ["nồi chiên", "5L", "giá rẻ"],
+    "tags": ["điện thoại", "Samsung", "Galaxy"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "CellphoneS"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_003",
+    "text": "Tivi Samsung 4K 55 inch giá rẻ nhất?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "giá rẻ"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "Nguyễn Kim"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_004",
+    "text": "iPhone 15 Pro Max giá rẻ nhất ở đâu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["điện thoại", "iPhone", "giá rẻ"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "CellphoneS"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "gia_005",
+    "text": "Máy giặt Samsung cửa trước giá khoảng bao nhiêu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["máy giặt", "Samsung", "giá"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "LG"],
+    "applies_to_brands": [2, 1]
+  },
+
+  {
+    "id": "gia_006",
+    "text": "Tủ lạnh Samsung side by side có khuyến mãi tháng 8 không?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["tủ lạnh", "Samsung", "khuyến mãi"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
   },
   {
-    "id": 13,
-    "text": "so sánh giá nồi chiên không dầu ở Shopee vs Lazada?",
+    "id": "gia_007",
+    "text": "Galaxy Z Flip giá bao nhiêu, có trả góp 0% không?",
     "group": "gia",
     "language": "vi",
-    "tags": ["so sánh giá", "shopee", "lazada"],
+    "tags": ["điện thoại", "Samsung", "Galaxy", "trả góp"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [2, 1]
   },
   {
-    "id": 14,
-    "text": "máy xay sinh tố giá rẻ dưới 500k?",
+    "id": "gia_008",
+    "text": "Điện Máy Xanh tháng này có khuyến mãi gì hấp dẫn?",
     "group": "gia",
     "language": "vi",
-    "tags": ["máy xay", "giá rẻ"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 15,
-    "text": "nồi cơm điện giá bao nhiêu là hợp lý?",
-    "group": "gia",
-    "language": "vi",
-    "tags": ["nồi cơm", "giá"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 16,
-    "text": "bộ nồi inox giá rẻ dưới 1 triệu?",
-    "group": "gia",
-    "language": "vi",
-    "tags": ["nồi inox", "giá rẻ"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 17,
-    "text": "quạt điều hòa giá bao nhiêu?",
-    "group": "gia",
-    "language": "vi",
-    "tags": ["quạt", "giá"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 18,
-    "text": "shop bán đồ gia dụng giá sỉ ở đâu?",
-    "group": "gia",
-    "language": "vi",
-    "tags": ["giá sỉ"],
+    "tags": ["khuyến mãi", "Điện Máy Xanh"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 19,
-    "text": "so sánh giá nồi chiên Philips và Lock&Lock?",
+    "id": "gia_009",
+    "text": "Mua tivi Samsung trả góp 0% ở đâu uy tín?",
     "group": "gia",
     "language": "vi",
-    "tags": ["so sánh giá", "Philips", "Lock&Lock"],
+    "tags": ["tivi", "Samsung", "trả góp"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [2, 1]
   },
   {
-    "id": 20,
-    "text": "máy hút bụi giá rẻ tốt nhất?",
+    "id": "gia_010",
+    "text": "Galaxy A55 giá rẻ nhất thị trường hiện tại?",
     "group": "gia",
     "language": "vi",
-    "tags": ["máy hút bụi", "giá rẻ"],
-    "difficulty": "easy",
-    "expected_mentions": []
+    "tags": ["điện thoại", "Samsung", "Galaxy A"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "OPPO", "Xiaomi"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "gia_011",
+    "text": "Tivi Samsung 65 inch có giảm giá dịp lễ 2/9 không?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "giảm giá"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_012",
+    "text": "So sánh giá Galaxy S24 giữa các shop, chỗ nào rẻ nhất?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "so sánh giá"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "CellphoneS"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_013",
+    "text": "iPhone 15 Pro Max 256GB giá tốt nhất hiện nay?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["điện thoại", "iPhone", "giá"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "CellphoneS"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "gia_014",
+    "text": "Máy lọc nước Samsung chính hãng giá bao nhiêu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["gia dụng", "Samsung", "giá"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_015",
+    "text": "Galaxy Watch giá sinh viên ưu đãi sao?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["đồng hồ", "Samsung", "sinh viên"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "CellphoneS"],
+    "applies_to_brands": [2, 1]
+  },
+
+  {
+    "id": "gia_016",
+    "text": "Tủ lạnh Samsung 500L nào đang giảm giá sâu nhất?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["tủ lạnh", "Samsung", "giảm giá"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_017",
+    "text": "Giá Samsung Galaxy S24 Ultra 1TB chính hãng kèm quà tặng?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy Ultra", "quà tặng"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_018",
+    "text": "Trả góp Galaxy Z Fold 6 tháng 8 lãi suất thấp nhất ở đâu?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy Fold", "trả góp"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_019",
+    "text": "Combo TV Samsung + soundbar Samsung ưu đãi kèm quà?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "combo", "khuyến mãi"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "gia_020",
+    "text": "Điện Máy Xanh flash sale cuối tuần này có gì hot?",
+    "group": "gia",
+    "language": "vi",
+    "tags": ["flash sale", "khuyến mãi", "Điện Máy Xanh"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   }
 ]
