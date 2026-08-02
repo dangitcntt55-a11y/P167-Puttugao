@@ -9,7 +9,9 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
-.cursor/
+# .cursor/ ignored by default, but track hook configs
+.cursor/*
+!.cursor/hooks.json
 
 # Common
 *.log
