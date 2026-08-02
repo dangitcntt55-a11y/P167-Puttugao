@@ -1,0 +1,11 @@
+response_id,ai_engine,prompt_id,brand_name,is_target_brand,position,sentiment,claim_type,evidence_quote,is_correct
+1,chatgpt,11,Minh Long,1,2,0.6,general,"Minh Long cũng có nồi chiên không dầu 5L",true
+2,claude,11,Philips,1,1,0.8,review,"Philips nồi chiên không dầu rất được ưa chuộng",true
+3,gemini,12,Sunhouse,1,1,0.7,price,"Sunhouse nồi chiên 5L giá 1.200.000 VND",true
+4,tavily,11,Minh Long,1,3,0.5,general,"Minh Long nồi chiên tầm trung",true
+5,chatgpt,21,Lock&Lock,1,1,0.8,review,"Lock&Lock nồi chiên không dầu chất lượng",true
+6,chatgpt,21,Minh Long,1,2,0.7,review,"Minh Long nồi chiên giá rẻ hơn",true
+7,claude,33,Lock&Lock,1,1,0.9,review,"Lock&Lock nồi chiên đáng mua nhất",true
+8,gemini,1,Minh Long,1,2,0.5,general,"Minh Long cửa hàng đồ gia dụng",true
+9,chatgpt,42,Minh Long,1,1,0.0,ship,"Minh Long có freeship TPHCM",true
+10,tavily,42,Minh Long,1,2,0.0,ship,"Minh Long phí ship 30k",true

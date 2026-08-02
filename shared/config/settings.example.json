@@ -1,0 +1,49 @@
+{
+  "app": {
+    "name": "GEO AI Agent for E-commerce VN",
+    "version": "0.1.0",
+    "env": "development"
+  },
+  "stability": {
+    "n_runs_per_prompt": 3,
+    "stability_threshold": 0.7,
+    "n_runs_production": 7
+  },
+  "bootstrap_ci": {
+    "n_iterations": 1000,
+    "alpha": 0.05,
+    "noise_floor_pct": 6.0
+  },
+  "ai_engines": {
+    "chatgpt": {
+      "primary_model": "gpt-4o-mini",
+      "heavy_model": "gpt-4o",
+      "use_for": ["parse", "sentiment_light", "action_recommend"]
+    },
+    "claude": {
+      "primary_model": "claude-3-5-haiku-20241022",
+      "heavy_model": "claude-3-5-sonnet-20241022",
+      "use_for": ["parse", "sentiment_heavy", "diagnosis"]
+    },
+    "gemini": {
+      "primary_model": "gemini-1.5-flash",
+      "heavy_model": "gemini-1.5-pro",
+      "use_for": ["response", "fallback"]
+    },
+    "tavily": {
+      "model": "tavily-advanced",
+      "use_for": ["cross_check_price", "cross_check_ship", "web_grounded_citation"]
+    }
+  },
+  "hitl": {
+    "sentiment": true,
+    "hallucination": true,
+    "severity_threshold": "high"
+  },
+  "demo": {
+    "brand_ids": [1, 2],
+    "prompt_count": 100,
+    "scan_per_day": 1,
+    "demo_duration_days": 28
+  }
+}
