@@ -58,6 +58,10 @@ frontend/.next/
 backend/.pytest_cache/
 data/.ipynb_checkpoints/
 
+# AI log (raw prompt logs — never commit, see docs/team-setup.md §7)
+.ai-log/session.jsonl
+.ai-log/archive/*.jsonl
+
 # Misc
 *.tsbuildinfo
 P-167/

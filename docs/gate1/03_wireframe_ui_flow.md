@@ -1,6 +1,6 @@
 # 🎨 WIREFRAME / UI FLOW — GEO AI Agent cho E-commerce Việt Nam
 
-> **Gate 1 Deliverable** · Phiên bản 1.0 · Ngày 02/08/2026
+> **Gate 1 Deliverable** · Ngày 02/08/2026
 > **Phụ trách chính:** Hải (Frontend/Infra)
 > **Tech Stack:** Next.js 14 + Tailwind CSS + Recharts
 
@@ -161,7 +161,7 @@ flowchart TD
 │  │  │ 📊 Brands    │  │ 🎯 Avg       │  │ ⚡ Stable    │  │ 🚨 Alerts  │ │ │
 │  │  │  2 target    │  │ Visibility   │  │ Gaps (≥0.7)  │  │    3 new   │ │ │
 │  │  │  (1sàn+1D2C) │  │   42.5%      │  │   28/45      │  │ (giá/ship) │ │ │
-│  │  │  ~8 comp.    │  │   ▲ +5.2%    │  │ 17 obs.only  │  │            │ │ │
+│  │  │  6 comp.     │  │   ▲ +5.2%    │  │ 17 obs.only  │  │            │ │ │
 │  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘ │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
@@ -176,17 +176,17 @@ flowchart TD
 │  │    60% ┤  ╭──╮│  │╭──╮              │  │    Claude   [====█==]         │ │
 │  │    40% ┤──│  ││  ││  │──╮           │  │    Tavily   [=█=====]         │ │
 │  │    20% ┤  │  ││  ││  │  │           │  │                               │ │
-│  │     0% ┤──┴──┴┴──┴┴──┴──┴──         │  │  ■ Brand A (sàn)             │ │
-│  │        B1  B2  B3  B4  B5  B6       │  │  ■ Brand B (D2C)             │ │
-│  │        (2 target + ~4 đối thủ)      │  │  ■ Đối thủ 1-4               │ │
+│  │     0% ┤──┴──┴┴──┴┴──┴──┴──         │  │  ■ Điện Máy Xanh (sàn)       │ │
+│  │        B1  B2  B3  B4  B5  B6       │  │  ■ Samsung Vietnam (D2C)     │ │
+│  │        (2 target + 6 đối thủ)       │  │  ■ Đối thủ 1-6               │ │
 │  └──────────────────────────────────────┘  └───────────────────────────────┘ │
 │                                                                              │
 │  ┌─ Visibility Trend (30 ngày) ────────────────────────────────────────────┐ │
 │  │                                                                         │ │
 │  │   50% ┤         ╭──╮    ╭──────╮                                       │ │
-│  │   40% ┤    ╭────╯  ╰────╯      ╰──────── Brand A (sàn TMĐT)           │ │
+│  │   40% ┤    ╭────╯  ╰────╯      ╰──────── Điện Máy Xanh (sàn TMĐT)     │ │
 │  │   30% ┤────╯                                                           │ │
-│  │   20% ┤──────────────────────────────────── Brand B (D2C)              │ │
+│  │   20% ┤──────────────────────────────────── Samsung Vietnam (D2C)      │ │
 │  │   10% ┤                                                                 │ │
 │  │       ┴───┬───┬───┬───┬───┬───┬───┬───┬                                │ │
 │  │          W1  W2  W3  W4  (tuần)                                        │ │
@@ -196,8 +196,8 @@ flowchart TD
 │  │                                                                         │ │
 │  │  Prompt                  │ ChatGPT │ Gemini │ Claude │ Tavily │ Stab.  │ │
 │  │  ────────────────────────┤─────────┤────────┤────────┤────────┤────────│ │
-│  │  "shop gia dụng uy t..." │  ✅ 1st  │  ❌     │  ✅ 3rd │  ✅ 2nd │  0.82 │ │
-│  │  "nồi chiên KD giá..."  │  ❌      │  ✅ 2nd │  ❌     │  ✅ 1st │ ⚠️0.65│ │
+│  │  "shop điện máy uy t..."  │  ✅ 1st  │  ❌     │  ✅ 3rd │  ✅ 2nd │  0.82 │ │
+│  │  "tủ lạnh Samsung giá..." │  ❌      │  ✅ 2nd │  ❌     │  ✅ 1st │ ⚠️0.65│ │
 │  │  "so sánh A vs B..."    │  ✅ 1st  │  ✅ 1st │  ✅ 2nd │  ✅ 1st │  0.91 │ │
 │  │  "brand có lừa đảo?"    │  ⚠️ neg  │  ✅ pos │  ✅ pos │  ✅ pos │  0.74 │ │
 │  │  ...                     │         │        │        │        │        │ │
@@ -226,13 +226,13 @@ flowchart TD
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  ← Back to Dashboard        Brand Detail: [Brand A — Sàn TMĐT]         [⚙] │
+│  ← Back to Dashboard        Brand Detail: [Điện Máy Xanh — Sàn TMĐT]    [⚙] │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  ┌─ Brand Info ────────────────────────────────────────────────────────────┐ │
-│  │  🏷 Brand A  (Loại: Sàn TMĐT)   Ngành: [Ngành hàng demo]              │ │
-│  │  Shopee: Active  Lazada: Active   Tiki: Active                         │ │
-│  │  Biến thể tên: 3+ biến thể (có dấu / không dấu / viết tắt)            │ │
+│  │  🏷 Điện Máy Xanh  (Loại: Sàn TMĐT)   Ngành: Điện máy / điện tử         │ │
+│  │  Shopee: Active  Lazada: Active   Website: Active                       │ │
+│  │  Biến thể tên: "Điện Máy Xanh" / "Dien May Xanh" / "DMX" / "ĐMX"       │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ KPI Cards ─────────────────────────────────────────────────────────────┐ │
@@ -245,25 +245,25 @@ flowchart TD
 │                                                                              │
 │  ┌─ Visibility by Prompt Group ─────┐  ┌─ Competitor Comparison ──────────┐ │
 │  │                                   │  │                                  │ │
-│  │   Uy tín    [████████░░] 80%     │  │  Brand      │ Vis. │ SOV │ Stab │ │
-│  │   Giá       [██████░░░░] 60%     │  │  ───────────┤──────┤─────┤──────│ │
-│  │   So sánh   [████░░░░░░] 40%     │  │  Philips    │ 55%  │ #1  │ 0.85 │ │
-│  │   Review    [███░░░░░░░] 30%     │  │  Minh Long  │ 42%  │ #2  │ 0.78 │ │
-│  │   Ship      [██░░░░░░░░] 20%     │  │  Lock&Lock  │ 38%  │ #3  │ 0.72 │ │
-│  │                                   │  │  Sunhouse   │ 25%  │ #4  │ 0.68 │ │
-│  └───────────────────────────────────┘  │  Kangaroo   │ 20%  │ #5  │ 0.71 │ │
-│                                          │  Tefal      │ 18%  │ #6  │ 0.66 │ │
+│  │   Uy tín    [████████░░] 80%     │  │  Brand         │ Vis. │ SOV │Stab│ │
+│  │   Giá       [██████░░░░] 60%     │  │  ───────────────┤──────┤─────┤────│ │
+│  │   So sánh   [████░░░░░░] 40%     │  │  Nguyễn Kim     │ 55%  │ #1  │0.85│ │
+│  │   Review    [███░░░░░░░] 30%     │  │  Điện Máy Xanh  │ 42%  │ #2  │0.78│ │
+│  │   Ship      [██░░░░░░░░] 20%     │  │  FPT Shop       │ 38%  │ #3  │0.72│ │
+│  │                                   │  │  PICO           │ 25%  │ #4  │0.68│ │
+│  └───────────────────────────────────┘  │  Samsung        │ 20%  │ #5  │0.71│ │
+│                                          │  CellphoneS     │ 18%  │ #6  │0.66│ │
 │                                          └──────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ Recent Gaps (Stability ≥ 0.7) ────────────────────────────────────────┐ │
 │  │                                                                         │ │
-│  │  🔴 "nồi chiên giá 1.5tr" (AI nói sai, thực tế 1.2tr)  Stab: 0.82   │ │
+│  │  🔴 "tủ lạnh giá 17.4tr" (AI nói sai, thực tế 14.99tr)   Stab: 0.82 │ │
 │  │     → [View Diagnosis]                                                  │ │
 │  │                                                                         │ │
 │  │  🟡 "ship chậm" (AI nói, thực tế ship nhanh)            Stab: 0.74   │ │
 │  │     → [View Diagnosis]                                                  │ │
 │  │                                                                         │ │
-│  │  🔵 Không được nhắc trong "top 5 shop uy tín"            Stab: 0.88   │ │
+│  │  🔵 Không được nhắc trong "top 5 shop điện máy uy tín"   Stab: 0.88   │ │
 │  │     → [View Diagnosis]                                                  │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -292,9 +292,9 @@ flowchart TD
 │  │                                                                         │ │
 │  │  ┌──────────────────────────────────────────────────────────────────┐   │ │
 │  │  │ 🔴 HALLUCINATION — Giá                    Stability: 0.82  ██▓  │   │ │
-│  │  │ Brand: Minh Long                                                │   │ │
-│  │  │ Prompt: "nồi chiên không dầu Minh Long giá bao nhiêu?"        │   │ │
-│  │  │ AI nói: 1,500,000đ   Thực tế: 1,200,000đ   Sai: +300K        │   │ │
+│  │  │ Brand: Điện Máy Xanh                                            │   │ │
+│  │  │ Prompt: "tủ lạnh Samsung Inverter 360L giá bao nhiêu?"         │   │ │
+│  │  │ AI nói: 17,400,000đ   Thực tế: 14,990,000đ   Sai: +2,41 triệu │   │ │
 │  │  │ AI Engines: ChatGPT ❌ | Gemini ❌ | Claude ✅ | Tavily ✅       │   │ │
 │  │  │ Status: ⏳ Pending Review                                       │   │ │
 │  │  │                                    [View Detail →] [Approve ✅]  │   │ │
@@ -302,20 +302,20 @@ flowchart TD
 │  │                                                                         │ │
 │  │  ┌──────────────────────────────────────────────────────────────────┐   │ │
 │  │  │ 🟡 MISSING MENTION — Uy tín                Stability: 0.91  ██▓│   │ │
-│  │  │ Brand: Minh Long                                                │   │ │
-│  │  │ Prompt: "top 5 shop đồ gia dụng uy tín Việt Nam?"             │   │ │
+│  │  │ Brand: Điện Máy Xanh                                            │   │ │
+│  │  │ Prompt: "top 5 hệ thống điện máy uy tín Việt Nam 2026?"        │   │ │
 │  │  │ Brand KHÔNG được nhắc ở 3/4 AI engines                        │   │ │
-│  │  │ Đối thủ nhắc: Philips (#1), Lock&Lock (#2), Sunhouse (#3)     │   │ │
+│  │  │ Đối thủ nhắc: Nguyễn Kim (#1), FPT Shop (#2), PICO (#3)       │   │ │
 │  │  │ Status: ⏳ Pending Review                                       │   │ │
 │  │  │                                    [View Detail →] [Approve ✅]  │   │ │
 │  │  └──────────────────────────────────────────────────────────────────┘   │ │
 │  │                                                                         │ │
 │  │  ┌──────────────────────────────────────────────────────────────────┐   │ │
 │  │  │ 🔵 NEGATIVE SENTIMENT — Ship            Stability: 0.74  ██░   │   │ │
-│  │  │ Brand: Minh Long                                                │   │ │
-│  │  │ Prompt: "Minh Long ship có nhanh không?"                       │   │ │
+│  │  │ Brand: Điện Máy Xanh                                            │   │ │
+│  │  │ Prompt: "Điện Máy Xanh ship có nhanh không?"                   │   │ │
 │  │  │ AI nói: "giao hàng có thể chậm 5-7 ngày"                      │   │ │
-│  │  │ Thực tế: "nội thành HCM/HN 1-3 ngày, siêu tốc trong ngày"    │   │ │
+│  │  │ Thực tế: "nội thành HCM/HN 2-5 ngày, siêu tốc trong ngày"    │   │ │
 │  │  │ Status: ⏳ Pending Review                                       │   │ │
 │  │  │                                    [View Detail →] [Approve ✅]  │   │ │
 │  │  └──────────────────────────────────────────────────────────────────┘   │ │
@@ -338,8 +338,8 @@ flowchart TD
 │                                                                              │
 │  ┌─ Header ────────────────────────────────────────────────────────────────┐ │
 │  │  🔴 HALLUCINATION — Giá sản phẩm                                      │ │
-│  │  Brand: Minh Long   │   Stability: 0.82 ██▓   │   Status: Pending    │ │
-│  │  Prompt: "nồi chiên không dầu Minh Long giá bao nhiêu?"              │ │
+│  │  Brand: Điện Máy Xanh │ Stability: 0.82 ██▓   │   Status: Pending    │ │
+│  │  Prompt: "tủ lạnh Samsung Inverter 360L giá bao nhiêu?"              │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ 3 Responses (Run 1, 2, 3) ────────────────────────────────────────────┐ │
@@ -347,60 +347,60 @@ flowchart TD
 │  │  [Run 1] [Run 2] [Run 3]                                              │ │
 │  │                                                                         │ │
 │  │  ┌─ ChatGPT (gpt-4o-mini) ─────────────────────────────────────────┐  │ │
-│  │  │  "Nồi chiên không dầu Minh Long 5L có giá khoảng               │  │ │
-│  │  │   ██1,500,000đ██, là một lựa chọn tốt trong phân khúc          │  │ │
-│  │  │   tầm trung. So với Lock&Lock 5L giá 1,500,000đ..."            │  │ │
-│  │  │  🔴 Claim: giá = 1,500,000đ   Thực tế: 1,200,000đ             │  │ │
+│  │  │  "Tủ lạnh Samsung Inverter 360L bán tại Điện Máy Xanh có giá    │  │ │
+│  │  │   khoảng ██17,400,000đ██, thuộc phân khúc tầm trung-cao.        │  │ │
+│  │  │   So với Samsung.com giá niêm yết cũng tương tự..."             │  │ │
+│  │  │  🔴 Claim: giá = 17,400,000đ   Thực tế: 14,990,000đ           │  │ │
 │  │  └──────────────────────────────────────────────────────────────────┘  │ │
 │  │                                                                         │ │
 │  │  ┌─ Gemini ────────────────────────────────────────────────────────┐   │ │
-│  │  │  "Giá nồi chiên không dầu Minh Long 5L dao động từ             │   │ │
-│  │  │   ██1,200,000đ đến 1,400,000đ██ tùy nơi bán..."               │   │ │
-│  │  │  ⚠️ Claim: giá = 1,200,000-1,400,000đ   Gần đúng              │   │ │
+│  │  │  "Giá tủ lạnh Samsung Inverter 360L tại Điện Máy Xanh dao       │   │ │
+│  │  │   động từ ██14,900,000đ đến 15,500,000đ██ tùy khuyến mãi..."   │   │ │
+│  │  │  ⚠️ Claim: giá = 14,900,000-15,500,000đ   Gần đúng             │   │ │
 │  │  └──────────────────────────────────────────────────────────────────┘  │ │
 │  │                                                                         │ │
 │  │  ┌─ Claude ────────────────────────────────────────────────────────┐   │ │
-│  │  │  "Nồi chiên không dầu Minh Long 5L giá ██1,200,000đ██         │   │ │
-│  │  │   theo website chính hãng."                                     │   │ │
-│  │  │  ✅ Claim: giá = 1,200,000đ   Chính xác                        │   │ │
+│  │  │  "Tủ lạnh Samsung Inverter 360L tại Điện Máy Xanh giá           │   │ │
+│  │  │   ██14,990,000đ██ theo bảng giá chính hãng."                    │   │ │
+│  │  │  ✅ Claim: giá = 14,990,000đ   Chính xác                        │   │ │
 │  │  └──────────────────────────────────────────────────────────────────┘  │ │
 │  │                                                                         │ │
 │  │  ┌─ Tavily (web-grounded) ─────────────────────────────────────────┐  │ │
-│  │  │  Sources: shopee.vn/minhlong_official, minhlong.com             │  │ │
-│  │  │  "Giá niêm yết: ██1,200,000đ██"                                │  │ │
-│  │  │  ✅ Verified: Giá đúng 1,200,000đ                               │  │ │
+│  │  │  Sources: shopee.vn/dienmayxanh_official, dienmayxanh.com       │  │ │
+│  │  │  "Giá niêm yết: ██14,990,000đ██"                               │  │ │
+│  │  │  ✅ Verified: Giá đúng 14,990,000đ                              │  │ │
 │  │  └──────────────────────────────────────────────────────────────────┘  │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ Evidence Package ──────────────────────────────────────────────────────┐ │
 │  │                                                                         │ │
 │  │  📎 Citation URLs:                                                     │ │
-│  │     • https://shopee.vn/minhlong_official (Shopee listing)    [Open ↗] │ │
-│  │     • https://minhlong.com/noi-chien-5l (Website chính hãng)  [Open ↗] │ │
+│  │     • https://shopee.vn/dienmayxanh_official (Shopee listing) [Open ↗] │ │
+│  │     • https://www.dienmayxanh.com/tu-lanh (Website chính hãng)[Open ↗] │ │
 │  │                                                                         │ │
 │  │  📝 Quote:                                                              │ │
-│  │     "Giá niêm yết nồi chiên không dầu 5L: 1,200,000đ"                │ │
+│  │     "Giá niêm yết tủ lạnh Samsung Inverter 360L: 14,990,000đ"        │ │
 │  │                                                                         │ │
 │  │  🏷 Claim Type: price                                                   │ │
 │  │  📊 Confidence: 0.92                                                    │ │
 │  │  📅 Verified at: 02/08/2026 14:30                                       │ │
 │  │                                                                         │ │
 │  │  ⚡ Tavily Cross-check Result:                                          │ │
-│  │     Giá Shopee: 1,200,000đ ✅                                           │ │
-│  │     Giá Website: 1,200,000đ ✅                                          │ │
-│  │     ChatGPT nói: 1,500,000đ ❌ (sai +300K)                             │ │
+│  │     Giá Shopee: 14,990,000đ ✅                                          │ │
+│  │     Giá Website: 14,990,000đ ✅                                         │ │
+│  │     ChatGPT nói: 17,400,000đ ❌ (sai +2,41 triệu, ~16%)               │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ Hypothesis & Actions ──────────────────────────────────────────────────┐ │
 │  │                                                                         │ │
 │  │  💡 Hypothesis (confidence: 0.85):                                      │ │
 │  │     "ChatGPT tham chiếu nguồn cũ (trước 01/2026) khi giá còn         │ │
-│  │      1,500,000đ. Website minhlong.com thiếu structured data            │ │
-│  │      (schema.org Product) nên AI không cập nhật giá mới."              │ │
+│  │      17,400,000đ. Website dienmayxanh.com thiếu structured data        │ │
+│  │      (schema.org Product) nên AI không cập nhật giá mới."               │ │
 │  │                                                                         │ │
 │  │  📋 Recommended Actions:                                                │ │
-│  │     1. [listing_update] Cập nhật schema Product với giá 1,200,000đ     │ │
-│  │     2. [content_add] Thêm FAQ "giá nồi chiên" trên website            │ │
+│  │     1. [listing_update] Cập nhật schema Product với giá 14,990,000đ    │ │
+│  │     2. [content_add] Thêm FAQ "giá tủ lạnh" trên website               │ │
 │  │     3. [outreach] Cập nhật thông tin trên Tinhte review                │ │
 │  │                                                                         │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
@@ -428,7 +428,7 @@ flowchart TD
 │  │                   │  │                     │  │                       │   │
 │  │ ┌───────────────┐ │  │ ┌─────────────────┐ │  │ ┌───────────────────┐ │   │
 │  │ │ 📝 Schema Add │ │  │ │ 📝 Listing Upd. │ │  │ │ 📝 Content Add   │ │   │
-│  │ │ Minh Long     │ │  │ │ Minh Long       │ │  │ │ Minh Long        │ │   │
+│  │ │ Điện Máy Xanh │ │  │ │ Điện Máy Xanh   │ │  │ │ Điện Máy Xanh    │ │   │
 │  │ │ Thêm FAQ giá  │ │  │ │ Schema Product  │ │  │ │ FAQ shipping     │ │   │
 │  │ │ ───────────── │ │  │ │ ─────────────── │ │  │ │ ───────────────  │ │   │
 │  │ │ Owner: Content│ │  │ │ Owner: Dev team │ │  │ │ Owner: Content   │ │   │
@@ -438,7 +438,7 @@ flowchart TD
 │  │                   │  │                     │  │                       │   │
 │  │ ┌───────────────┐ │  │                     │  │ ┌───────────────────┐ │   │
 │  │ │ 📝 Outreach   │ │  │                     │  │ │ 📝 Content PR    │ │   │
-│  │ │ Lock&Lock     │ │  │                     │  │ │ Minh Long        │ │   │
+│  │ │ Samsung VN    │ │  │                     │  │ │ Điện Máy Xanh    │ │   │
 │  │ │ Update Tinhte │ │  │                     │  │ │ Bài review       │ │   │
 │  │ │ ───────────── │ │  │                     │  │ │ ───────────────  │ │   │
 │  │ │ Owner: PR     │ │  │                     │  │ │ Result:          │ │   │
@@ -450,8 +450,8 @@ flowchart TD
 │  └───────────────────┘  └─────────────────────┘  └───────────────────────┘   │
 │                                                                              │
 │  ┌─ Alert Bar ─────────────────────────────────────────────────────────────┐ │
-│  │  🚨 Hallucination Alert: ChatGPT nói Minh Long ship chậm 5-7 ngày    │ │
-│  │     (thực tế: 1-3 ngày). Severity: HIGH   [View →]  [Dismiss]        │ │
+│  │  🚨 Hallucination Alert: ChatGPT nói Điện Máy Xanh ship chậm 5-7 ngày│ │
+│  │     (thực tế: 2-5 ngày). Severity: HIGH   [View →]  [Dismiss]        │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -468,8 +468,8 @@ flowchart TD
 ├──────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  ┌─ Task Summary ──────────────────────────────────────────────────────────┐ │
-│  │  Brand: Minh Long                                                       │ │
-│  │  Action: Content Add — FAQ về giá nồi chiên không dầu                  │ │
+│  │  Brand: Điện Máy Xanh                                                   │ │
+│  │  Action: Content Add — FAQ về giá tủ lạnh Samsung Inverter 360L        │ │
 │  │  Completed: 28/07/2026                                                  │ │
 │  │  Re-scanned: 30/07/2026 (3 lần × 4 AI)                                │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
@@ -534,7 +534,7 @@ flowchart TD
 │                                                                              │
 │  ┌─ Brand Comparison ─────────────────────────────────────────────────────┐ │
 │  │                                                                         │ │
-│  │  ┌─ Minh Long ──────────────────┐  ┌─ Lock&Lock ──────────────────┐   │ │
+│  │  ┌─ Điện Máy Xanh ──────────────┐  ┌─ Samsung Vietnam ────────────┐   │ │
 │  │  │  Tasks completed: 3          │  │  Tasks completed: 2          │   │ │
 │  │  │  Improved: 2                 │  │  Improved: 1                 │   │ │
 │  │  │  No evidence: 1              │  │  No evidence: 1              │   │ │
@@ -558,7 +558,7 @@ flowchart TD
 │                                                                              │
 │  ┌─ Manual Scan ───────────────────────────────────────────────────────────┐ │
 │  │                                                                         │ │
-│  │  Brand:           [Brand A (sàn) ▼]                                    │ │
+│  │  Brand:           [Điện Máy Xanh (sàn) ▼]                              │ │
 │  │  Prompt Group:    [All ▼]   (~100 prompt tiếng Việt, 5 nhóm)           │ │
 │  │  AI Engines:      ☑ ChatGPT  ☑ Gemini  ☑ Claude  ☑ Tavily            │ │
 │  │  Runs per prompt: [3 ▼]  ← N=3 lần/prompt (demo); N=7-8 (production)  │ │
@@ -571,12 +571,12 @@ flowchart TD
 │                                                                              │
 │  ┌─ Scan History ──────────────────────────────────────────────────────────┐ │
 │  │                                                                         │ │
-│  │  Scan ID │ Brand      │ Time        │ Prompts │ Responses │ Status     │ │
-│  │  ────────┤────────────┤─────────────┤─────────┤───────────┤────────    │ │
-│  │  SC-005  │ Brand A    │ 02/08 14:30 │ 100     │ 1,200     │ ✅ Done   │ │
-│  │  SC-004  │ All brands │ 01/08 09:00 │ 100     │ 1,200     │ ✅ Done   │ │
-│  │  SC-003  │ Brand B    │ 30/07 14:00 │ 100     │ 1,200     │ ✅ Done   │ │
-│  │  SC-002  │ Brand A    │ 28/07 09:00 │ 100     │ 1,180     │ ⚠️ Partial│ │
+│  │  Scan ID │ Brand           │ Time        │ Prompts │ Responses │ Status│ │
+│  │  ────────┤─────────────────┤─────────────┤─────────┤───────────┤───────│ │
+│  │  SC-005  │ Điện Máy Xanh   │ 02/08 14:30 │ 100     │ 1,200     │✅ Done│ │
+│  │  SC-004  │ All brands      │ 01/08 09:00 │ 100     │ 1,200     │✅ Done│ │
+│  │  SC-003  │ Samsung Vietnam │ 30/07 14:00 │ 100     │ 1,200     │✅ Done│ │
+│  │  SC-002  │ Điện Máy Xanh   │ 28/07 09:00 │ 100     │ 1,180     │⚠️Partial│
 │  │                                                                         │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
@@ -666,7 +666,7 @@ flowchart TD
 
 ## 13. User Flow Scenarios
 
-> **Context chung:** Marketer hiện phải mở 4 tab AI riêng rạc, không biết đề xuất nào đáng tin (không có stability score), không có priority ranking có bằng chứng, và không có cách đo lại hiệu quả. 3 scenarios dưới đây minh họa cách hệ thống giải quyết các pain points đó.
+> **Context chung:** Marketer hiện phải mở 4 tab AI riêng rạc, không biết đề xuất nào đáng tin (không có stability score), không có priority ranking có bằng chứng, và không có cách đo lại hiệu quả. 3 scenarios dưới đây minh họa cách hệ thống giải quyết các pain points đó (áp dụng cho Điện Máy Xanh / Samsung Vietnam).
 
 ### 13.1. Scenario 1: Phát hiện hallucination giá (Pain point #2 + #5)
 
@@ -693,9 +693,9 @@ flowchart TD
 
 ```
 1. Marketer mở Dashboard → thấy brand không xuất hiện trong SOV chart (4 tab gộp thành 1)
-2. Lọc theo prompt group "uy tín" → thấy gap ở prompt "top 5 shop uy tín"
+2. Lọc theo prompt group "uy tín" → thấy gap ở prompt "top 5 hệ thống điện máy uy tín"
 3. Stability Score = 0.91 ≥ 0.7 → gap ổn định, vào diagnosis
-4. Click "View Diagnosis" → xem đối thủ nào được nhắc (Philips #1, đối thủ B #2)
+4. Click "View Diagnosis" → xem đối thủ nào được nhắc (Nguyễn Kim #1, FPT Shop #2)
 5. Evidence package: thiếu schema.org Organization + Review, thiếu citation từ Tinhte
 6. Action có priority + citation URL: "content_pr" + "outreach" (Tinhte review)
 7. Marketer approve → tasks vào Board với evidence_url đính kèm
@@ -723,4 +723,4 @@ flowchart TD
 
 ---
 
-> 📌 **Ghi chú:** Wireframe này là low-fidelity, sẽ được refine trong quá trình phát triển. Hải phụ trách implementation trong Next.js 14 + Tailwind CSS + Recharts. Brand cụ thể (1 sàn + 1 D2C) sẽ được confirm ở Tuần 0.
+> 📌 **Ghi chú:** Wireframe này là low-fidelity, sẽ được refine trong quá trình phát triển. Hải phụ trách implementation trong Next.js 14 + Tailwind CSS + Recharts.

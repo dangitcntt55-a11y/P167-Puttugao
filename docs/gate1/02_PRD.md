@@ -1,7 +1,7 @@
 # 📄 PRD — Product Requirements Document
 ## GEO AI Agent cho E-commerce Việt Nam
 
-> **Gate 1 Deliverable** · Phiên bản 1.0 · Ngày 02/08/2026
+> **Gate 1 Deliverable** · Ngày 02/08/2026
 > **Nhóm:** Đăng, Lý, Khôi, Hải
 > **Trạng thái:** Draft — chờ review Gate 1
 
@@ -174,7 +174,7 @@ AI Agent tự động hoá 90% pipeline, với:
 |----|------------|----------|
 | FR-02.1 | Trích xuất brand mention từ raw response (GPT-4o-mini) | P0 |
 | FR-02.2 | Xác định: brand_name, position (1,2,3), sentiment (-1 to +1), context_quote, claim_type | P0 |
-| FR-02.3 | Xử lý 3 biến thể tên: có dấu / không dấu / viết tắt ("Minh Long" / "MinhLong" / "MLB") | P0 |
+| FR-02.3 | Xử lý 3 biến thể tên: có dấu / không dấu / viết tắt ("Điện Máy Xanh" / "Dien May Xanh" / "DMX") | P0 |
 | FR-02.4 | Thiên về recall (FN nguy hiểm hơn FP) | P0 |
 
 ### FR-03: Stability Score Computation
@@ -505,31 +505,32 @@ Prompt Library → Prompt Runner → 4 AI APIs → Raw Responses (DB)
 
 | Nhóm | Số lượng | Ví dụ |
 |------|----------|-------|
-| **Uy tín** | 20 prompt | "shop bán đồ gia dụng uy tín TPHCM?" |
-| **Giá** | 20 prompt | "nồi chiên không dầu giá bao nhiêu?" |
-| **So sánh** | 20 prompt | "so sánh Minh Long vs Lock&Lock?" |
-| **Review** | 20 prompt | "review nồi chiên không dầu Minh Long?" |
-| **Ship/Dịch vụ** | 20 prompt | "shop đồ gia dụng nào ship nhanh nhất?" |
+| **Uy tín** | 20 prompt | "shop điện máy nào uy tín TPHCM?" |
+| **Giá** | 20 prompt | "TV Samsung giá bao nhiêu?" |
+| **So sánh** | 20 prompt | "so sánh Điện Máy Xanh vs FPT Shop?" |
+| **Review** | 20 prompt | "review Samsung Galaxy có tốt không?" |
+| **Ship/Dịch vụ** | 20 prompt | "Điện Máy Xanh ship có nhanh không?" |
 
 ### 10.2. Format (JSON)
 
 ```json
 {
-  "id": 1,
-  "text": "shop bán đồ gia dụng uy tín TPHCM?",
+  "id": "uy_tin_001",
+  "text": "Mua tivi ở đâu chính hãng, uy tín?",
   "group": "uy_tin",
   "language": "vi",
-  "tags": ["thành phố", "đồ gia dụng"],
+  "tags": ["tivi", "chính hãng", "uy_tín"],
   "difficulty": "easy",
-  "expected_mentions": []
+  "expected_mentions": ["Điện Máy Xanh", "Samsung", "Nguyễn Kim"],
+  "applies_to_brands": [1, 2]
 }
 ```
 
 ### 10.3. Biến thể tên brand
 
-Mỗi brand phải xử lý 3+ biến thể:
-- **Minh Long**: `"Minh Long"`, `"Minh Long Book"`, `"MLB"`, `"MinhLong"`
-- **Lock&Lock**: `"Lock&Lock"`, `"Lock and Lock"`, `"locklock"`, `"L&L"`
+Mỗi brand phải xử lý 3+ biến thể (theo `data/brands/*.json`):
+- **Điện Máy Xanh**: `"Điện Máy Xanh"`, `"Dien May Xanh"`, `"DMX"`, `"ĐMX"`, `"dienmayxanh"`
+- **Samsung Vietnam**: `"Samsung"`, `"Samsung Vietnam"`, `"Samsung VN"`, `"samsungvietnam"`, `"SAMSUNG"`
 
 ---
 
@@ -537,7 +538,7 @@ Mỗi brand phải xử lý 3+ biến thể:
 
 ### 11.1. Stability-aware Monitoring
 
-**Căn cứ:** Schulte et al. arXiv 2604.07585
+**Căn cứ:** Schulte et al. [arXiv 2604.07585](https://arxiv.org/abs/2604.07585)
 
 - GEO là **stochastic, partially observable pipeline**
 - Cùng prompt, cùng model → kết quả khác nhau giữa các lần chạy
@@ -547,15 +548,15 @@ Mỗi brand phải xử lý 3+ biến thể:
 
 ### 11.2. Evidence-grounded Diagnosis
 
-**Căn cứ:** Tian et al. arXiv 2603.09296
+**Căn cứ:** Tian et al. [arXiv 2603.09296](https://arxiv.org/abs/2603.09296)
 
-- Diagnose-and-repair system cải thiện 40% citation rate
+- Diagnose-and-repair system (AgentGEO) cải thiện >40% citation rate với chỉ 5% sửa nội dung
 - Mỗi gap cần evidence package: URL + quote_span + claim_type + confidence + verified_at
 - Tavily cross-check giá/ship với source thực (Shopee, Lazada, web shop)
 
 ### 11.3. Closed-loop Re-measurement
 
-**Căn cứ:** arXiv 2603.08924
+**Căn cứ:** [arXiv 2603.08924](https://arxiv.org/abs/2603.08924)
 
 - Citation share có noise floor 5-7 điểm %
 - Bootstrap 95% CI bắt buộc khi báo cáo hiệu quả action
