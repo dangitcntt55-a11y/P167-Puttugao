@@ -8,18 +8,24 @@
 
 ## 1. Bạn sẽ cài gì?
 
-| Thành phần | Vai trò | Khi nào chạy |
-|---|---|---|
-| `.cursor/hooks.json` | Cursor IDE hook — capture mỗi prompt bạn gửi cho AI | Tự động, mỗi khi nhấn Enter trong Cursor |
-| `scripts/log_antigravity.py` | Quét lịch sử chat Antigravity (file `~/.gemini/antigravity-ide/brain/...`) | Tự động, mỗi lần `git push` |
-| `scripts/submit_log.py` | POST JSON lên server chấm bài | Tự động, mỗi lần `git push` |
-| `.git/hooks/pre-push.cmd` | Git hook trên Windows — trigger 2 script ở trên | Tự động, mỗi lần `git push` |
+
+| Thành phần                   | Vai trò                                                                    | Khi nào chạy                             |
+| ---------------------------- | -------------------------------------------------------------------------- | ---------------------------------------- |
+| `.cursor/hooks.json`         | Cursor IDE hook — capture mỗi prompt bạn gửi cho AI                        | Tự động, mỗi khi nhấn Enter trong Cursor |
+| `scripts/log_antigravity.py` | Quét lịch sử chat Antigravity (file `~/.gemini/antigravity-ide/brain/...`) | Tự động, mỗi lần `git push`              |
+| `scripts/submit_log.py`      | POST JSON lên server chấm bài                                              | Tự động, mỗi lần `git push`              |
+| `.git/hooks/pre-push.cmd`    | Git hook trên Windows — trigger 2 script ở trên                            | Tự động, mỗi lần `git push`              |
+
 
 **Cài xong 1 lần → chạy mãi mãi, không cần làm gì thêm.**
 
 ---
 
+
+
 ## 2. Cài đặt từng bước (Windows)
+
+
 
 ### 2.1. Clone repo (nếu chưa có)
 
@@ -28,6 +34,8 @@ cd D:\AI_THUCCHIEN
 git clone https://github.com/dangitcntt55-a11y/P167-Puttugao.git BTNHOM
 cd BTNHOM
 ```
+
+
 
 ### 2.2. Tạo file `.env`
 
@@ -42,12 +50,14 @@ notepad .env
 
 ```ini
 AI_LOG_SERVER=https://ai-logs.note.transformerlabs.ai/api/ingest
-AI_LOG_API_KEY=ai20k_O_HybPA61T8864gUD5tUXxYZ43i3bb9c
+AI_LOG_API_KEY=
 AI_LOG_DIR=.ai-log
 ```
 
 > ⚠️ **Key này là key nhóm** — ai cũng dùng chung. KHÔNG tự ý rotate.
 > Nếu key lộ (commit lên public repo) → ping Đăng ngay để rotate.
+
+
 
 ### 2.3. Cấu hình git credential (chỉ cần làm 1 lần)
 
@@ -66,20 +76,25 @@ powershell -ExecutionPolicy Bypass -File scripts\setup_hooks.ps1
 ```
 
 Output mong đợi:
+
 ```
 [ai-log] Git pre-push hook installed.
 [ai-log] Setup complete. Configure AI_LOG_SERVER in your .env file.
 ```
 
 **Kiểm tra**:
+
 ```powershell
 dir .git\hooks\pre-push*
 ```
+
 → Phải thấy `pre-push.cmd` (KHÔNG phải `pre-push` không extension). Nếu thấy `pre-push` thì đổi tên:
 
 ```powershell
 ren .git\hooks\pre-push pre-push.cmd
 ```
+
+
 
 ### 2.5. Cài Cursor hook
 
@@ -95,7 +110,11 @@ Get-Content .ai-log/session.jsonl
 
 ---
 
+
+
 ## 3. Verify setup (chạy 1 lần sau khi cài)
+
+
 
 ### 3.1. Test thủ công submit_log
 
@@ -104,16 +123,20 @@ python scripts\submit_log.py
 ```
 
 Output mong đợi (nếu session.jsonl có entries):
+
 ```
 [ai-log] Submitted N entries → 202
 ```
 
 **Giải thích status code**:
+
 - `202 Accepted` = server đã nhận (OK!)
 - `200` = cũng OK (server trả tùy phiên bản)
 - `401` = sai key → check `.env`
 - `422` = payload invalid → ping Đăng
 - Connection refused / timeout = server chưa lên (lỗi mạng, KHÔNG chặn push)
+
+
 
 ### 3.2. Test push thật
 
@@ -125,6 +148,7 @@ git push origin main:main
 ```
 
 Khi push, terminal sẽ in ra:
+
 ```
 [antigravity-log] Logged X prompt(s) from Antigravity IDE.
 [ai-log] Submitted N entries → 202
@@ -142,6 +166,8 @@ dir .ai-log\archive
 
 ---
 
+
+
 ## 4. Cấu trúc file log
 
 ```
@@ -153,6 +179,7 @@ dir .ai-log\archive
 ```
 
 **Mỗi entry** có dạng:
+
 ```json
 {
   "ts": "2026-08-02T20:00:49.980895+07:00",
@@ -172,44 +199,56 @@ dir .ai-log\archive
 
 ---
 
+
+
 ## 5. Câu hỏi thường gặp
+
+
 
 ### Q: Push xong không thấy log trên server?
 
 1. Check session.jsonl có entries không:
-   ```powershell
+  ```powershell
    Get-Content .ai-log/session.jsonl
-   ```
+  ```
    → Nếu rỗng → Cursor hook chưa chạy → mở lại Cursor rồi gõ 1 prompt test.
-
 2. Test submit thủ công:
-   ```powershell
+  ```powershell
    python scripts\submit_log.py
-   ```
+  ```
    → Phải in `[ai-log] Submitted N entries → 202`.
-
 3. Check `.env` đã có `AI_LOG_SERVER` + `AI_LOG_API_KEY`:
-   ```powershell
+  ```powershell
    Get-Content .env | Select-String "AI_LOG"
-   ```
+  ```
+
+
 
 ### Q: Bị lỗi `Unknown credential store 'wincred'` khi push?
 
 Chạy:
+
 ```powershell
 git config --global credential.credentialStore dpapi
 ```
 
+
+
 ### Q: Bị lỗi `cannot spawn .git/hooks/pre-push`?
 
 File hook phải có extension `.cmd`:
+
 ```powershell
 dir .git\hooks\pre-push*
 ```
+
 → Phải có `pre-push.cmd`. Nếu chỉ thấy `pre-push`:
+
 ```powershell
 ren .git\hooks\pre-push pre-push.cmd
 ```
+
+
 
 ### Q: Status `202` có phải lỗi không?
 
@@ -225,15 +264,19 @@ Không! `202 Accepted` nghĩa là server đã nhận payload thành công và s�
 
 ---
 
+
+
 ## 6. Quy trình làm việc hằng ngày
 
 1. **Sáng**: Kéo code mới nhất về (`git pull`).
 2. **Trong ngày**: Code bình thường, gửi prompt cho AI bình thường — không cần làm gì thêm.
 3. **Cuối ngày / khi xong task**: `git add` → `git commit` → `git push`.
-   → Hook tự động scan + submit log. Bạn sẽ thấy 1–2 dòng `[ai-log] Submitted N entries → 202` ở terminal.
+  → Hook tự động scan + submit log. Bạn sẽ thấy 1–2 dòng `[ai-log] Submitted N entries → 202` ở terminal.
 4. **Không cần làm gì khác**.
 
 ---
+
+
 
 ## 7. Không commit những thứ này
 
@@ -244,6 +287,8 @@ Không! `202 Accepted` nghĩa là server đã nhận payload thành công và s�
 - `.ai-log/archive/*.jsonl` (log đã submit, dùng để debug offline thôi)
 
 ---
+
+
 
 ## 8. Khi gặp vấn đề
 
@@ -258,3 +303,4 @@ Làm theo thứ tự:
 > 📌 **Tổng kết**: Sau khi cài 1 lần, bạn sẽ không cần quan tâm đến AI log nữa. Mỗi push = 1 lần submit tự động.
 > 📌 **Server trả 202 = OK**, không phải lỗi.
 > 📌 **Key nhóm** nằm trong `.env` ở repo root — ai cũng dùng chung.
+
