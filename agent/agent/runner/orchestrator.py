@@ -20,40 +20,49 @@ from agent.engines.base import BaseEngine, EngineResponse
 from agent.runner.prompt_runner import run_one
 
 
-def get_engine(ai_engine_name: str) -> BaseEngine:
-    """Map ai_engine name → engine instance."""
-    if ai_engine_name == "chatgpt":
-        return ChatGPTEngine(model="gpt-4o-mini")
-    if ai_engine_name == "claude":
-        return ClaudeEngine(model="claude-3-5-haiku-20241022")
-    if ai_engine_name == "gemini":
-        return GeminiEngine(model="gemini-1.5-flash")
-    if ai_engine_name == "tavily":
-        return TavilyEngine()
-    raise ValueError(f"Unknown ai_engine: {ai_engine_name}")
+def get_engine(engine_name: str) -> BaseEngine:
+    """Map engine name → engine instance."""
+    mapping = {
+        "chatgpt": lambda: ChatGPTEngine(model="gpt-4o-mini"),
+        "claude":  lambda: ClaudeEngine(model="claude-3-5-haiku-20241022"),
+        "gemini":  lambda: GeminiEngine(model="gemini-1.5-flash"),
+        "tavily":  lambda: TavilyEngine(),
+    }
+    if engine_name not in mapping:
+        raise ValueError(f"Unknown engine: {engine_name}. Valid: {list(mapping)}")
+    return mapping[engine_name]()
 
 
 def get_all_engines() -> list[BaseEngine]:
-    """Default 4 engines cho demo."""
-    return [get_engine("chatgpt"), get_engine("claude"), get_engine("gemini"), get_engine("tavily")]
+    """Default 4 engines cho demo (3 LLM + 1 Search)."""
+    return [
+        get_engine("chatgpt"),
+        get_engine("claude"),
+        get_engine("gemini"),
+        get_engine("tavily"),
+    ]
 
 
 async def save_response_to_backend(brand_id: int, prompt_id: int, response: EngineResponse, run_index: int) -> dict:
     """POST response về backend API để lưu DB."""
     async with httpx.AsyncClient() as client:
+        payload = {
+            "brand_id": brand_id,
+            "prompt_id": prompt_id,
+            "model_version": response.model_version,
+            "response_text": response.text,
+            "citations": response.citations,
+            "run_index": run_index,
+            "latency_ms": response.latency_ms,
+            "cost_usd": response.cost_usd,
+        }
+        if response.llm_engine:
+            payload["llm_engine"] = response.llm_engine
+        if response.search_engine:
+            payload["search_engine"] = response.search_engine
         r = await client.post(
             f"{settings.backend_api_url}/responses/",
-            json={
-                "brand_id": brand_id,
-                "prompt_id": prompt_id,
-                "ai_engine": response.ai_engine,
-                "model_version": response.model_version,
-                "response_text": response.text,
-                "citations": response.citations,
-                "run_index": run_index,
-                "latency_ms": response.latency_ms,
-                "cost_usd": response.cost_usd,
-            },
+            json=payload,
             headers={"X-API-Key": settings.backend_api_key} if settings.backend_api_key else {},
         )
         r.raise_for_status()
@@ -99,7 +108,8 @@ async def run_scan(
     # 3. Iterate
     total_cost = 0.0
     n_responses = 0
-    by_engine: dict[str, int] = {}
+    by_llm: dict[str, int] = {}
+    by_search: dict[str, int] = {}
 
     for prompt in prompts:
         for engine in engines:
@@ -109,10 +119,12 @@ async def run_scan(
                     await save_response_to_backend(brand_id, prompt["id"], response, run_index)
                     total_cost += response.cost_usd
                     n_responses += 1
-                    by_engine[engine.ai_engine] = by_engine.get(engine.ai_engine, 0) + 1
+                    if response.llm_engine:
+                        by_llm[response.llm_engine] = by_llm.get(response.llm_engine, 0) + 1
+                    elif response.search_engine:
+                        by_search[response.search_engine] = by_search.get(response.search_engine, 0) + 1
                 except Exception as e:
-                    # Log + continue
-                    print(f"[ERROR] {engine.ai_engine} prompt={prompt['id']} run={run_index}: {e}")
+                    print(f"[ERROR] engine={getattr(engine, 'llm_engine', None) or getattr(engine, 'search_engine', '?')} prompt={prompt['id']} run={run_index}: {e}")
 
     return {
         "status": "completed",
@@ -122,5 +134,6 @@ async def run_scan(
         "n_runs": n_runs,
         "n_responses": n_responses,
         "cost_usd": round(total_cost, 4),
-        "by_engine": by_engine,
+        "by_llm_engine": by_llm,
+        "by_search_engine": by_search,
     }

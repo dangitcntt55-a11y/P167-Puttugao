@@ -18,7 +18,8 @@ def main() -> None:
     runner_p = subparsers.add_parser("runner", help="Run scan for a brand")
     runner_p.add_argument("--brand-id", type=int, required=True)
     runner_p.add_argument("--prompt-ids", type=int, nargs="*", default=None)
-    runner_p.add_argument("--ai-engines", type=str, nargs="*", default=None)
+    runner_p.add_argument("--engines", type=str, nargs="*", default=None,
+                          help="Engine names: chatgpt, claude, gemini (LLM) hoặc tavily (search). Default = all 4.")
     runner_p.add_argument("--n-runs", type=int, default=3)
     runner_p.add_argument("--once", action="store_true", help="Run once (no scheduler)")
 
@@ -38,7 +39,7 @@ def main() -> None:
         asyncio.run(run_scan(
             brand_id=args.brand_id,
             prompt_ids=args.prompt_ids,
-            ai_engines=args.ai_engines,
+            ai_engines=args.engines,
             n_runs=args.n_runs,
         ))
     elif args.command == "parse":

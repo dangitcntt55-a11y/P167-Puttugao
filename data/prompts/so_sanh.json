@@ -1,92 +1,204 @@
 [
   {
-    "id": 21,
-    "text": "so sánh nồi chiên không dầu Lock&Lock và Minh Long?",
+    "id": "so_sanh_001",
+    "text": "Điện Máy Xanh và FPT Shop cái nào rẻ hơn?",
     "group": "so_sanh",
     "language": "vi",
-    "tags": ["nồi chiên", "Lock&Lock", "Minh Long"],
-    "difficulty": "medium",
-    "expected_mentions": ["Lock&Lock", "Minh Long"]
-  },
-  {
-    "id": 22,
-    "text": "nồi chiên không dầu Philips hay Lock&Lock tốt hơn?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["nồi chiên", "Philips", "Lock&Lock"],
-    "difficulty": "medium",
-    "expected_mentions": ["Philips", "Lock&Lock"]
-  },
-  {
-    "id": 23,
-    "text": "so sánh máy xay sinh tố Sunhouse và Philips?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["máy xay", "Sunhouse", "Philips"],
-    "difficulty": "medium",
-    "expected_mentions": ["Sunhouse", "Philips"]
-  },
-  {
-    "id": 24,
-    "text": "nồi cơm điện nào tốt nhất hiện nay?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["nồi cơm"],
+    "tags": ["so sánh giá", "retailer"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 25,
-    "text": "shop bán đồ gia dụng nào nhiều mẫu nhất?",
+    "id": "so_sanh_002",
+    "text": "Galaxy S24 hay iPhone 15 cái nào tốt hơn?",
     "group": "so_sanh",
     "language": "vi",
-    "tags": ["đa dạng"],
+    "tags": ["điện thoại", "Samsung", "Apple"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 26,
-    "text": "minh long vs kangaroo nồi chiên?",
+    "id": "so_sanh_003",
+    "text": "Tivi Sony hay Samsung cái nào đáng mua hơn?",
     "group": "so_sanh",
     "language": "vi",
-    "tags": ["nồi chiên", "Minh Long", "Kangaroo"],
-    "difficulty": "medium",
-    "expected_mentions": ["Minh Long", "Kangaroo"]
-  },
-  {
-    "id": 27,
-    "text": "nồi chiên không dầu nội địa nào tốt?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["nồi chiên", "nội địa"],
-    "difficulty": "medium",
-    "expected_mentions": []
-  },
-  {
-    "id": 28,
-    "text": "so sánh chảo chống dính Sunhouse và Tefal?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["chảo", "Sunhouse", "Tefal"],
-    "difficulty": "medium",
-    "expected_mentions": ["Sunhouse", "Tefal"]
-  },
-  {
-    "id": 29,
-    "text": "bình nóng lạnh nào tốt Ariston hay Ferroli?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["bình nóng lạnh", "Ariston", "Ferroli"],
-    "difficulty": "medium",
-    "expected_mentions": ["Ariston", "Ferroli"]
-  },
-  {
-    "id": 30,
-    "text": "shop đồ gia dụng online nào đáng tin 2026?",
-    "group": "so_sanh",
-    "language": "vi",
-    "tags": ["online", "uy tín"],
+    "tags": ["tivi", "Samsung", "Sony"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Sony", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_004",
+    "text": "Tủ lạnh Samsung và LG nên mua hãng nào?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["tủ lạnh", "Samsung", "LG"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_005",
+    "text": "Điện Máy Xanh và CellphoneS hệ thống nào lớn hơn?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["retailer", "quy mô"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh", "CellphoneS"],
+    "applies_to_brands": [1]
+  },
+
+  {
+    "id": "so_sanh_006",
+    "text": "Galaxy S24 Ultra đọ sức iPhone 15 Pro Max, flagship nào đỉnh hơn?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Apple", "flagship"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_007",
+    "text": "Điện Máy Xanh hay Nguyễn Kim mua tivi tốt hơn?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["tivi", "retailer"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "Nguyễn Kim"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "so_sanh_008",
+    "text": "Samsung Galaxy A55 đối đầu OPPO Reno 11, chọn cái nào?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "OPPO", "tầm trung"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "OPPO"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_009",
+    "text": "Tủ lạnh inverter Samsung và Panasonic cái nào tiết kiệm điện hơn?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["tủ lạnh", "Samsung", "Panasonic", "tiết kiệm điện"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Panasonic"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_010",
+    "text": "Galaxy Z Flip 6 hay Galaxy Z Fold 6 chọn cái nào hợp?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy Z"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_011",
+    "text": "Điện Máy Xanh và PICO khác nhau chỗ nào?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["retailer", "so sánh"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "PICO"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "so_sanh_012",
+    "text": "TV Samsung QLED và OLED LG cái nào đẹp hơn?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "LG", "QLED", "OLED"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_013",
+    "text": "Galaxy Tab hay iPad tốt hơn cho công việc?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["tablet", "Samsung", "Apple"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_014",
+    "text": "Điện Máy Xanh so với Hoàng Hà Mobile về giá điện thoại?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["điện thoại", "retailer", "giá"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "Hoàng Hà Mobile"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "so_sanh_015",
+    "text": "Galaxy Watch 6 có đối thủ nào xứng tầm?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["đồng hồ", "Samsung", "Apple"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+
+  {
+    "id": "so_sanh_016",
+    "text": "So sánh chi tiết hệ sinh thái Samsung Galaxy và iPhone cho người chuyển đổi?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Apple", "ecosystem"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_017",
+    "text": "Điện Máy Xanh, FPT Shop, CellphoneS: hệ thống nào dịch vụ tốt nhất 2026?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["retailer", "dịch vụ", "ranking"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop", "CellphoneS"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "so_sanh_018",
+    "text": "Tivi Samsung Neo QLED liệu có đáng upgrade từ LG OLED?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "LG", "nâng cấp"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_019",
+    "text": "Galaxy S24 series nào phù hợp từng nhu cầu: S24, S24+, S24 Ultra?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "so_sanh_020",
+    "text": "Điện Máy Xanh vs Nguyễn Kim vs PICO: ưu nhược điểm từng chuỗi?",
+    "group": "so_sanh",
+    "language": "vi",
+    "tags": ["retailer", "phân tích"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh", "Nguyễn Kim", "PICO"],
+    "applies_to_brands": [1]
   }
 ]

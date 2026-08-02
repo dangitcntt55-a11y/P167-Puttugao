@@ -1,92 +1,204 @@
 [
   {
-    "id": 31,
-    "text": "nồi chiên không dầu loại nào tốt nhất?",
+    "id": "review_001",
+    "text": "Có nên mua tủ lạnh Samsung không?",
     "group": "review",
     "language": "vi",
-    "tags": ["nồi chiên", "review"],
+    "tags": ["tủ lạnh", "Samsung", "review"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 32,
-    "text": "review nồi chiên không dầu 5L?",
+    "id": "review_002",
+    "text": "Review Galaxy S24 Ultra có đáng mua không?",
     "group": "review",
     "language": "vi",
-    "tags": ["nồi chiên", "5L", "review"],
+    "tags": ["điện thoại", "Samsung", "Galaxy Ultra"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 33,
-    "text": "đánh giá nồi chiên không dầu Lock&Lock?",
+    "id": "review_003",
+    "text": "Tivi Samsung có tốt không?",
     "group": "review",
     "language": "vi",
-    "tags": ["nồi chiên", "Lock&Lock", "đánh giá"],
+    "tags": ["tivi", "Samsung", "review"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "LG", "Sony"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_004",
+    "text": "Điện Máy Xanh dịch vụ khách hàng thế nào?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["dịch vụ", "Điện Máy Xanh"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "review_005",
+    "text": "Mua iPhone ở Điện Máy Xanh có yên tâm không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["điện thoại", "iPhone", "retailer"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [1]
+  },
+
+  {
+    "id": "review_006",
+    "text": "Đánh giá tủ lạnh Samsung Bespoke có gì đặc biệt?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["tủ lạnh", "Samsung", "Bespoke"],
     "difficulty": "medium",
-    "expected_mentions": ["Lock&Lock"]
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 34,
-    "text": "có nên mua nồi chiên không dầu không?",
+    "id": "review_007",
+    "text": "Galaxy Z Flip 5 có đáng mua trong năm 2026?",
     "group": "review",
     "language": "vi",
-    "tags": ["nồi chiên", "mua"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 35,
-    "text": "review máy xay sinh tố loại nào tốt?",
-    "group": "review",
-    "language": "vi",
-    "tags": ["máy xay", "review"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 36,
-    "text": "nồi cơm điện tử hay cơ học tốt hơn?",
-    "group": "review",
-    "language": "vi",
-    "tags": ["nồi cơm"],
+    "tags": ["điện thoại", "Samsung", "Galaxy Z"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 37,
-    "text": "review chảo chống dính có tốt không?",
+    "id": "review_008",
+    "text": "Review máy giặt Samsung AI Wash có hiệu quả không?",
     "group": "review",
     "language": "vi",
-    "tags": ["chảo", "chống dính"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 38,
-    "text": "máy lọc nước loại nào tốt hiện nay?",
-    "group": "review",
-    "language": "vi",
-    "tags": ["máy lọc nước"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 39,
-    "text": "review máy rửa bát có đáng mua?",
-    "group": "review",
-    "language": "vi",
-    "tags": ["máy rửa bát"],
+    "tags": ["máy giặt", "Samsung", "AI"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
   },
   {
-    "id": 40,
-    "text": "lò vi sóng loại nào nên mua?",
+    "id": "review_009",
+    "text": "Điện Máy Xanh giao hàng có cẩn thận, đóng gói kỹ không?",
     "group": "review",
     "language": "vi",
-    "tags": ["lò vi sóng"],
-    "difficulty": "easy",
-    "expected_mentions": []
+    "tags": ["giao hàng", "Điện Máy Xanh"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "review_010",
+    "text": "Tivi Samsung Neo QLED 8K có đáng tiền mua không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "Neo QLED", "8K"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_011",
+    "text": "Galaxy S24 Plus dùng có ổn không, pin yếu không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy", "pin"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_012",
+    "text": "Khách hàng nói gì về Điện Máy Xanh trên diễn đàn?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["cộng đồng", "Điện Máy Xanh"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh", "FPT Shop"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "review_013",
+    "text": "Đồ điện tử Samsung có nên mua không, dùng có bền không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["đồ điện tử", "Samsung", "độ bền"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_014",
+    "text": "Review Galaxy Tab S9 có phù hợp làm việc văn phòng?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["tablet", "Samsung", "công việc"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_015",
+    "text": "Tủ lạnh Samsung side by side chạy có ồn không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["tủ lạnh", "Samsung", "side by side", "tiếng ồn"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+
+  {
+    "id": "review_016",
+    "text": "Galaxy Z Fold 5 sau 6 tháng sử dụng có còn tốt không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy Z", "long-term"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_017",
+    "text": "Điện Máy Xanh có thật sự chất lượng như quảng cáo không?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["quảng cáo", "thực tế", "Điện Máy Xanh"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "review_018",
+    "text": "So sánh thực tế TV Samsung OLED và LG OLED C3 cái nào đáng hơn?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["tivi", "Samsung", "LG", "OLED"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "LG"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_019",
+    "text": "Galaxy AI có thật sự hữu ích hay chỉ là tính năng làm cảnh?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["Samsung", "Galaxy AI", "thực tế"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
+  },
+  {
+    "id": "review_020",
+    "text": "Review thực tế từ người dùng về Samsung Galaxy S24 Ultra sau 1 năm?",
+    "group": "review",
+    "language": "vi",
+    "tags": ["điện thoại", "Samsung", "Galaxy Ultra", "long-term"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Apple"],
+    "applies_to_brands": [2]
   }
 ]

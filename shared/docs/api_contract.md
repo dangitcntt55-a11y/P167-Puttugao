@@ -68,10 +68,15 @@ Trigger 1 scan (manual).
 {
   "brand_id": 1,
   "prompt_ids": [1, 2, 3],  // optional, null = all
-  "ai_engines": ["chatgpt", "claude"],  // optional, null = all 4
+  "engines": ["chatgpt", "claude"],  // optional, null = all 4 (chatgpt/claude/gemini/tavily)
   "n_runs": 3
 }
 ```
+
+**Ghi chú (ADR-0003):** tham số `engines` (rename từ `ai_engines`) chấp nhận
+cả LLM (`chatgpt`/`claude`/`gemini`) và search engine (`tavily`). Agent
+orchestrator sẽ tự route value vào cột `llm_engine` hoặc `search_engine`
+tương ứng trong bảng `responses`.
 
 **Response 200:**
 ```json
@@ -84,13 +89,59 @@ Trigger 1 scan (manual).
 }
 ```
 
+### Responses
+
+Theo ADR-0003: agent orchestrator POST raw response vào endpoint này. Mỗi
+payload chỉ được set **đúng 1** trong 2 fields `llm_engine` hoặc
+`search_engine` (CHECK constraint `chk_one_engine` ở DB).
+
+#### `POST /responses/`
+Lưu 1 raw response (do agent gọi).
+
+**Request body:**
+```json
+{
+  "brand_id": 1,
+  "prompt_id": 5,
+  "llm_engine": "chatgpt",        // option A: 'chatgpt' | 'gemini' | 'claude'
+  // "search_engine": "tavily",   // option B: 'tavily' — đúng 1 trong 2
+  "model_version": "gpt-4o-mini-2024-07-18",
+  "response_text": "...",
+  "citations": [{"url": "https://..."}],
+  "run_index": 1,
+  "latency_ms": 1234,
+  "cost_usd": 0.0021,
+  "trace_id": "optional-trace-id"
+}
+```
+
+**Response 201:**
+```json
+{
+  "id": 100,
+  "brand_id": 1,
+  "prompt_id": 5,
+  "llm_engine": "chatgpt",
+  "search_engine": null,
+  "model_version": "gpt-4o-mini-2024-07-18",
+  "run_index": 1,
+  "created_at": "2026-08-02T09:00:00Z"
+}
+```
+
+#### `GET /responses/{response_id}`
+Get 1 response theo ID.
+
+**Response 200:** giống POST response shape trên.
+
 ### Visibility
 
-#### `GET /visibility/{brand_id}?days=7`
+#### `GET /visibility/{brand_id}?days=7&engine=chatgpt`
 Get visibility metrics cho 1 brand.
 
 **Query params:**
 - `days`: 1-90 (default 7)
+- `engine` (optional): `chatgpt` | `gemini` | `claude` | `tavily` — None = aggregate all engines (ADR-0003).
 
 **Response 200:**
 ```json

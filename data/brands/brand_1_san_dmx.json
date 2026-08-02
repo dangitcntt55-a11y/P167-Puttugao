@@ -1,0 +1,36 @@
+{
+  "id": 1,
+  "name": "Điện Máy Xanh",
+  "name_variants": ["Điện Máy Xanh", "Dien May Xanh", "DMX", "ĐMX", "dienmayxanh", "thegioididong.com/dien-may"],
+  "brand_type": "san",
+  "category": "điện máy / điện tử gia dụng",
+  "is_target": true,
+  "shopee_url": "https://shopee.vn/dienmayxanh_official",
+  "lazada_url": "https://www.lazada.vn/shop/dien-may-xanh",
+  "website_url": "https://www.dienmayxanh.com",
+  "knowledge_base": {
+    "price_table": {
+      "tivi_samsung_55_inch_4k": 11990000,
+      "tu_lanh_samsung_inverter_360l": 14990000,
+      "may_giat_samsung_inverter_9kg": 9990000,
+      "dieu_hoa_daikin_1hp_inverter": 8990000,
+      "may_lanh_panasonic_1hp": 7490000,
+      "loa_soundbar_samsung_2_1ch": 4990000,
+      "android_tv_sony_55_inch": 15990000
+    },
+    "ship_policy": {
+      "freeship": "đơn từ 500k nội thành (HCM, HN, ĐN, Cần Thơ)",
+      "noi_dia": "2-5 ngày tuỳ khu vực",
+      "phi_ship": 30000,
+      "sieu_toc": "Trong ngày (HCM/HN nội thành)",
+      "lap_dat_mien_phi": "Tivi, máy lạnh, máy giặt (>5tr)"
+    },
+    "return_policy": "Đổi trả trong 7 ngày nếu lỗi NSX. Lỗi đổi mới 100% trong 30 ngày đầu.",
+    "warranty": "12-24 tháng tuỳ sản phẩm (chính hãng)",
+    "rating": 4.6,
+    "n_reviews": 180000,
+    "shopee_rating": 4.7,
+    "shopee_n_orders": 1200000,
+    "verified_at": "2026-08-02"
+  }
+}

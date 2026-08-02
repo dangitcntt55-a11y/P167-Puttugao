@@ -10,7 +10,7 @@ genai.configure(api_key=settings.google_ai_api_key)
 
 
 class GeminiEngine(BaseEngine):
-    ai_engine = "gemini"
+    llm_engine = "gemini"
 
     def __init__(self, model: str = "gemini-1.5-flash"):
         self.model = model
@@ -39,7 +39,7 @@ class GeminiEngine(BaseEngine):
             latency_ms=latency_ms,
             cost_usd=cost,
             raw={"text": text},
-            ai_engine=self.ai_engine,
+            llm_engine=self.llm_engine,
         )
 
 

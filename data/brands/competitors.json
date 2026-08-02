@@ -2,47 +2,69 @@
   "competitors": [
     {
       "id": 3,
-      "name": "Sunhouse",
-      "name_variants": ["Sunhouse", "SUNHOUSE"],
-      "brand_type": "d2c",
-      "category": "đồ gia dụng",
+      "name": "Nguyễn Kim",
+      "name_variants": ["Nguyễn Kim", "Nguyen Kim", "nguyenkim", "NK"],
+      "brand_type": "san",
+      "category": "điện máy",
       "is_target": false,
-      "shopee_url": "https://shopee.vn/sunhouse_official",
-      "lazada_url": "https://www.lazada.vn/shop/sunhouse",
-      "website_url": "https://sunhouse.com.vn"
+      "shopee_url": "https://shopee.vn/nguyenkim_official",
+      "lazada_url": "https://www.lazada.vn/shop/nguyen-kim",
+      "website_url": "https://www.nguyenkim.com"
     },
     {
       "id": 4,
-      "name": "Kangaroo",
-      "name_variants": ["Kangaroo", "KANGAROO"],
-      "brand_type": "d2c",
-      "category": "đồ gia dụng",
+      "name": "PICO",
+      "name_variants": ["PICO", "Pico", "pico", "Siêu thị PICO"],
+      "brand_type": "san",
+      "category": "điện máy",
       "is_target": false,
-      "shopee_url": "https://shopee.vn/kangaroo_official",
-      "lazada_url": "https://www.lazada.vn/shop/kangaroo",
-      "website_url": "https://kangaroo.com.vn"
+      "shopee_url": "https://shopee.vn/pico_official",
+      "lazada_url": "https://www.lazada.vn/shop/pico",
+      "website_url": "https://www.pico.vn"
     },
     {
       "id": 5,
-      "name": "Philips",
-      "name_variants": ["Philips", "PHILIPS"],
-      "brand_type": "d2c",
-      "category": "đồ gia dụng",
+      "name": "FPT Shop",
+      "name_variants": ["FPT Shop", "FPTShop", "FPT Shop VN", "fptshop"],
+      "brand_type": "san",
+      "category": "điện tử (phone, laptop)",
       "is_target": false,
-      "shopee_url": "https://shopee.vn/philips_official",
-      "lazada_url": "https://www.lazada.vn/shop/philips",
-      "website_url": "https://www.philips.com.vn"
+      "shopee_url": "https://shopee.vn/fptshop_official",
+      "lazada_url": "https://www.lazada.vn/shop/fpt-shop",
+      "website_url": "https://fptshop.com.vn"
     },
     {
       "id": 6,
-      "name": "Tefal",
-      "name_variants": ["Tefal", "TEFAL"],
+      "name": "CellphoneS",
+      "name_variants": ["CellphoneS", "Cellphone S", "CellPhones", "CPS", "cellphones"],
       "brand_type": "d2c",
-      "category": "đồ gia dụng",
+      "category": "điện thoại / laptop",
       "is_target": false,
-      "shopee_url": "https://shopee.vn/tefal_official",
-      "lazada_url": "https://www.lazada.vn/shop/tefal",
-      "website_url": "https://www.tefal.com.vn"
+      "shopee_url": "https://shopee.vn/cellphones_official",
+      "lazada_url": "https://www.lazada.vn/shop/cellphone-s",
+      "website_url": "https://cellphones.com.vn"
+    },
+    {
+      "id": 7,
+      "name": "Apple Vietnam",
+      "name_variants": ["Apple Vietnam", "Apple VN", "Apple", "applevn"],
+      "brand_type": "d2c",
+      "category": "điện thoại / laptop",
+      "is_target": false,
+      "shopee_url": "https://shopee.vn/apple_flagship_store",
+      "lazada_url": "https://www.lazada.vn/shop/apple-flagship",
+      "website_url": "https://www.apple.com/vn"
+    },
+    {
+      "id": 8,
+      "name": "Xiaomi Vietnam",
+      "name_variants": ["Xiaomi", "Xiaomi Vietnam", "Xiaomi VN", "xiaomivietnam"],
+      "brand_type": "d2c",
+      "category": "điện thoại / gia dụng thông minh",
+      "is_target": false,
+      "shopee_url": "https://shopee.vn/xiaomi_official_store",
+      "lazada_url": "https://www.lazada.vn/shop/xiaomi-official",
+      "website_url": "https://www.xiaomi.vn"
     }
   ]
 }

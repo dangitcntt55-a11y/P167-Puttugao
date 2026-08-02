@@ -16,58 +16,80 @@ from app.db.models import Response, StabilityScore
 from app.config import settings
 
 
-def compute_stability_score(mention_counts: list[int]) -> float:
-    """Tính Stability Score = 1 - normalized variance.
+def compute_stability_score(mention_positions: list[int | None]) -> float:
+    """Tính Stability Score dựa trên mention_position qua N lần chạy.
 
     Args:
-        mention_counts: list số mention qua N lần chạy (vd: [1, 1, 0, 1])
+        mention_positions: list vị trí nhắc qua N lần (None nếu không nhắc, 1/2/3 nếu có nhắc).
+        Ví dụ: [1, 1, None, 2] = ổn định ở top; [None, 1, None, None] = không ổn định.
 
     Returns:
-        Float 0-1. Càng cao càng ổn định. ≥ 0.7 mới đủ gate.
+        Float 0-1. ≥ 0.7 mới đủ gate.
 
-    Công thức:
-        var = variance(mention_counts)
-        max_var = max possible variance (Bernoulli: 0.25 cho N=3, 0.5 cho N>> )
-        stability = 1 - (var / max_var)
+    Logic:
+        - Có 2 thành phần: presence_consistency + position_consistency.
+        - presence_consistency = tỷ lệ lần được nhắc (số lần != None / N).
+        - position_consistency = 1 - normalized std(position) (chỉ tính trên các != None).
+        - stability = 0.6 * presence_consistency + 0.4 * position_consistency.
+        - Trọng số 0.6/0.4 có thể tune — giờ ưu tiên "có nhắc" hơn "đúng vị trí".
     """
-    if not mention_counts:
+    if not mention_positions:
         return 0.0
-    arr = np.array(mention_counts, dtype=float)
-    var = arr.var()
-    # Normalize bằng max possible variance (cho binary outcome)
-    max_var = 0.25
-    normalized = min(var / max_var, 1.0)
-    return float(1.0 - normalized)
+    n = len(mention_positions)
+    present = [p for p in mention_positions if p is not None]
+    n_present = len(present)
+    presence_rate = n_present / n  # đã là 0-1
+
+    if n_present < 2:
+        # Không đủ data để tính position variance
+        position_stability = presence_rate
+    else:
+        positions = np.array(present, dtype=float)
+        if positions.std() == 0:
+            position_stability = 1.0
+        else:
+            # Normalize std về max possible std (cho position 1-3 → max std ≈ 1.0)
+            position_stability = max(0.0, 1.0 - positions.std() / 1.0)
+
+    return float(0.6 * presence_rate + 0.4 * position_stability)
 
 
 async def compute_stability_for_brand_prompt(
-    session: AsyncSession, brand_id: int, prompt_id: int, ai_engine: str | None = None
+    session: AsyncSession, brand_id: int, prompt_id: int, llm_engine: str | None = None
 ) -> StabilityScore:
-    """Tính Stability Score cho (brand, prompt, optional ai_engine) từ N lần chạy gần nhất."""
+    """Tính Stability Score cho (brand, prompt, optional llm_engine) từ N lần chạy gần nhất."""
     query = (
         select(Response)
         .where(Response.brand_id == brand_id, Response.prompt_id == prompt_id)
         .order_by(Response.created_at.desc())
         .limit(settings.n_runs_per_prompt)
     )
-    if ai_engine:
-        query = query.where(Response.ai_engine == ai_engine)
+    if llm_engine:
+        query = query.where(Response.llm_engine == llm_engine)
     result = await session.execute(query)
     responses = result.scalars().all()
 
-    # mention_count = 1 nếu có mention target brand, 0 nếu không
-    # TODO: thực tế cần join bảng mentions
-    mention_counts = [1 if r.mentions else 0 for r in responses]
-    visibility_rate = sum(mention_counts) / len(mention_counts) if mention_counts else 0.0
-    stability = compute_stability_score(mention_counts)
+    # mention_positions = list position (None nếu brand không nhắc)
+    mention_positions = []
+    for r in responses:
+        target_mentions = [m for m in r.mentions if m.is_target_brand]
+        if target_mentions:
+            # Lấy position nhỏ nhất (= nhắc sớm nhất)
+            mention_positions.append(min(m.position for m in target_mentions))
+        else:
+            mention_positions.append(None)
+
+    visibility_rate = sum(1 for p in mention_positions if p is not None) / len(mention_positions) if mention_positions else 0.0
+    stability = compute_stability_score(mention_positions)
 
     score = StabilityScore(
         brand_id=brand_id,
         prompt_id=prompt_id,
-        ai_engine=ai_engine or "all",
+        llm_engine=llm_engine,
+        search_engine=None,
         stability_score=stability,
         visibility_rate=visibility_rate,
-        n_runs=len(mention_counts),
+        n_runs=len(mention_positions),
         is_stable=stability >= settings.stability_threshold,
     )
     session.add(score)

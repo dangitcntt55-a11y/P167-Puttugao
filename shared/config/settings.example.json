@@ -14,25 +14,14 @@
     "alpha": 0.05,
     "noise_floor_pct": 6.0
   },
-  "ai_engines": {
-    "chatgpt": {
-      "primary_model": "gpt-4o-mini",
-      "heavy_model": "gpt-4o",
-      "use_for": ["parse", "sentiment_light", "action_recommend"]
+  "engines": {
+    "llm": {
+      "chatgpt": { "primary_model": "gpt-4o-mini", "heavy_model": "gpt-4o", "use_for": ["parse", "sentiment_light", "action_recommend"] },
+      "claude":  { "primary_model": "claude-3-5-haiku-20241022", "heavy_model": "claude-3-5-sonnet-20241022", "use_for": ["parse", "sentiment_heavy", "diagnosis"] },
+      "gemini":  { "primary_model": "gemini-1.5-flash", "heavy_model": "gemini-1.5-pro", "use_for": ["response", "fallback"] }
     },
-    "claude": {
-      "primary_model": "claude-3-5-haiku-20241022",
-      "heavy_model": "claude-3-5-sonnet-20241022",
-      "use_for": ["parse", "sentiment_heavy", "diagnosis"]
-    },
-    "gemini": {
-      "primary_model": "gemini-1.5-flash",
-      "heavy_model": "gemini-1.5-pro",
-      "use_for": ["response", "fallback"]
-    },
-    "tavily": {
-      "model": "tavily-advanced",
-      "use_for": ["cross_check_price", "cross_check_ship", "web_grounded_citation"]
+    "search": {
+      "tavily": { "model": "tavily-advanced", "use_for": ["cross_check_price", "cross_check_ship", "web_grounded_citation"], "cost_per_search_usd": 0.005 }
     }
   },
   "hitl": {

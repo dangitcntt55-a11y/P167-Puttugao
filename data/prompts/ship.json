@@ -1,92 +1,204 @@
 [
   {
-    "id": 41,
-    "text": "shop bán đồ gia dụng có freeship không?",
+    "id": "ship_001",
+    "text": "Điện Máy Xanh giao hàng mất bao lâu?",
     "group": "ship",
     "language": "vi",
-    "tags": ["freeship"],
+    "tags": ["giao hàng", "Điện Máy Xanh"],
     "difficulty": "easy",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 42,
-    "text": "Minh Long có freeship TPHCM không?",
+    "id": "ship_002",
+    "text": "Samsung giao hàng trong ngày ở HCM được không?",
     "group": "ship",
     "language": "vi",
-    "tags": ["freeship", "TPHCM", "Minh Long"],
+    "tags": ["giao hàng", "Samsung", "thành phố"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "ship_003",
+    "text": "Điện Máy Xanh có hỗ trợ ship COD không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["COD", "thanh toán", "Điện Máy Xanh"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "ship_004",
+    "text": "Đổi trả ở Điện Máy Xanh trong bao nhiêu ngày?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["đổi trả", "Điện Máy Xanh"],
+    "difficulty": "easy",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "ship_005",
+    "text": "Samsung có giao hàng về tỉnh không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["giao hàng", "tỉnh", "Samsung"],
+    "difficulty": "easy",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+
+  {
+    "id": "ship_006",
+    "text": "Điện Máy Xanh có giao hàng trong ngày không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["giao nhanh", "Điện Máy Xanh"],
     "difficulty": "medium",
-    "expected_mentions": ["Minh Long"]
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 43,
-    "text": "chính sách đổi trả của shop đồ gia dụng?",
+    "id": "ship_007",
+    "text": "Phí ship tivi 65 inch ở Điện Máy Xanh bao nhiêu?",
     "group": "ship",
     "language": "vi",
-    "tags": ["đổi trả"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 44,
-    "text": "shop đồ gia dụng nào ship nhanh nhất?",
-    "group": "ship",
-    "language": "vi",
-    "tags": ["ship nhanh"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 45,
-    "text": "thời gian giao hàng nồi chiên không dầu bao lâu?",
-    "group": "ship",
-    "language": "vi",
-    "tags": ["thời gian", "nồi chiên"],
+    "tags": ["phí ship", "tivi", "Điện Máy Xanh"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 46,
-    "text": "shop đồ gia dụng có bảo hành không?",
+    "id": "ship_008",
+    "text": "Mua Samsung Galaxy có freeship không?",
     "group": "ship",
     "language": "vi",
-    "tags": ["bảo hành"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 47,
-    "text": "phí ship nồi cơm điện đi tỉnh bao nhiêu?",
-    "group": "ship",
-    "language": "vi",
-    "tags": ["phí ship", "nồi cơm"],
+    "tags": ["freeship", "điện thoại", "Samsung"],
     "difficulty": "medium",
-    "expected_mentions": []
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
   },
   {
-    "id": 48,
-    "text": "shop đồ gia dụng có ship COD không?",
+    "id": "ship_009",
+    "text": "Điện Máy Xanh lắp đặt tủ lạnh có tốn phí không?",
     "group": "ship",
     "language": "vi",
-    "tags": ["COD"],
-    "difficulty": "easy",
-    "expected_mentions": []
-  },
-  {
-    "id": 49,
-    "text": "Minh Long ship nội địa bao lâu?",
-    "group": "ship",
-    "language": "vi",
-    "tags": ["Minh Long", "ship"],
+    "tags": ["lắp đặt", "tủ lạnh", "Điện Máy Xanh"],
     "difficulty": "medium",
-    "expected_mentions": ["Minh Long"]
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
   },
   {
-    "id": 50,
-    "text": "shop đồ gia dụng có hỗ trợ lắp đặt không?",
+    "id": "ship_010",
+    "text": "Galaxy S24 có giao nhanh 2 giờ ở Hà Nội không?",
     "group": "ship",
     "language": "vi",
-    "tags": ["lắp đặt"],
-    "difficulty": "easy",
-    "expected_mentions": []
+    "tags": ["giao nhanh", "điện thoại", "thành phố"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "ship_011",
+    "text": "Điện Máy Xanh ship đi nước ngoài được không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["quốc tế", "Điện Máy Xanh"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "ship_012",
+    "text": "Đổi trả Galaxy S24 trong 30 ngày ở đâu chính hãng?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["đổi trả", "điện thoại", "Samsung"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "ship_013",
+    "text": "Samsung có hỗ trợ ship và lắp đặt tivi tại nhà không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["lắp đặt", "tivi", "Samsung"],
+    "difficulty": "medium",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "ship_014",
+    "text": "Điện Máy Xanh freeship từ đơn bao nhiêu tiền?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["freeship", "Điện Máy Xanh"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "ship_015",
+    "text": "Phí lắp đặt máy lạnh Điện Máy Xanh hiện tại bao nhiêu?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["lắp đặt", "máy lạnh", "Điện Máy Xanh"],
+    "difficulty": "medium",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+
+  {
+    "id": "ship_016",
+    "text": "Tivi Samsung mua online Điện Máy Xanh có hỗ trợ treo tường tại nhà không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["lắp đặt", "treo tường", "tivi"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "ship_017",
+    "text": "Điện Máy Xanh giao hàng đi tỉnh xa có đảm bảo nguyên vẹn không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["đóng gói", "tỉnh", "Điện Máy Xanh"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "ship_018",
+    "text": "Galaxy Z Fold 6 pre-order có ship sớm hơn shop khác không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["pre-order", "điện thoại", "Samsung"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
+  },
+  {
+    "id": "ship_019",
+    "text": "Điện Máy Xanh đổi trả khi lỗi NSX có miễn phí ship không?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["đổi trả", "lỗi", "Điện Máy Xanh"],
+    "difficulty": "hard",
+    "expected_mentions": ["Điện Máy Xanh"],
+    "applies_to_brands": [1]
+  },
+  {
+    "id": "ship_020",
+    "text": "Mua TV Samsung online, dịch vụ lắp đặt và bảo hành tại nhà ra sao?",
+    "group": "ship",
+    "language": "vi",
+    "tags": ["online", "lắp đặt", "bảo hành"],
+    "difficulty": "hard",
+    "expected_mentions": ["Samsung", "Điện Máy Xanh"],
+    "applies_to_brands": [2, 1]
   }
 ]
