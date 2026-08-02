@@ -5,13 +5,27 @@ $ErrorActionPreference = 'Stop'
 
 $HookFile = '.git/hooks/pre-push'
 
-# Git on Windows runs hooks via Git Bash, so the hook body must be bash.
+# Git on Windows spawns hooks via cmd.exe by default, so use a .cmd (batch)
+# script to avoid the "cannot spawn" error when bash is not on PATH.
 $HookBody = @'
-#!/usr/bin/env bash
-# Pre-push: sweep recent Antigravity / Gemini prompts, then submit AI logs.
-bash scripts/_pyrun.sh scripts/log_antigravity.py --auto || true
-bash scripts/_pyrun.sh scripts/submit_log.py || true
-exit 0
+@echo off
+rem Pre-push hook for Windows: sweep Antigravity logs, then submit to server.
+rem Avoids bash dep — pure Windows batch calling python directly.
+
+setlocal
+cd /d "%~dp0.."
+
+rem Sweep recent Antigravity / Gemini prompts into .ai-log/session.jsonl
+python scripts\log_antigravity.py --auto
+
+rem Submit pending logs to grading server (never blocks push)
+python scripts\submit_log.py
+if errorlevel 1 (
+  echo [ai-log] submit_log.py exited %errorlevel% -- logs kept locally.
+)
+
+endlocal
+exit /b 0
 '@
 
 Set-Content -Path $HookFile -Value $HookBody -Encoding UTF8 -NoNewline
