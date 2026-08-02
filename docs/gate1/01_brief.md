@@ -29,17 +29,17 @@
 
 | # | Pain Point | Tác động |
 |---|-----------|----------|
-| 1 | Không biết AI nói gì về shop mình | Mất traffic pre-purchase không hay biết |
-| 2 | Không biết prompt nào đưa đối thủ ra trước | Không có dashboard theo dõi AI visibility |
-| 3 | Không biết cách tối ưu để AI "chọn" mình | Khác SEO Google, khác review sàn |
-| 4 | Công cụ quốc tế quá đắt (Semrush $139-199/mo) | Không phù hợp SME Việt Nam |
-| 5 | Chưa có công cụ chuyên biệt E-commerce VN | Kompa GEO focus tổng quát |
+| 1 | Kết quả từ nhiều AI bị phân tán (ChatGPT, Gemini, Claude, Tavily chạy rời rạc) | Marketer không có dashboard gộp, phải mở 4 tab mỗi lần check |
+| 2 | Các mô hình AI đưa ra đề xuất khác nhau cho cùng 1 prompt | Không biết đề xuất nào đáng tin, không có cơ chế đo độ ổn định |
+| 3 | Đề xuất AI thiếu bối cảnh doanh nghiệp (ngành hàng, đối thủ, prompt đặc thù VN) | Tool quốc tế (Semrush, Ahrefs) dùng prompt pattern US/EU, không cover câu hỏi tiếng Việt |
+| 4 | Nhiều đề xuất nhưng không biết làm gì trước | Không có priority ranking, không gắn với citation/bằng chứng |
+| 5 | Khó đánh giá độ tin cậy của đề xuất AI | Không có stability score, không có evidence-grounded, không có closed-loop để verify |
 
 ### 2.3. Quy trình hiện tại (thủ công)
 
 Marketing Manager phải thực hiện 7 bước thủ công, tốn **~80 giờ/tháng** chỉ để theo dõi AI visibility cho 2 brand E-commerce:
 
-1. Liệt kê prompts → 2. Gửi đến 4 AI → 3. Đọc câu trả lời + check claim → 4. So sánh đối thủ → 5. Tổng hợp vào Excel → 6. Viết báo cáo + check hallucination → 7. Đề xuất action
+1. Liệt kê prompts → 2. Gửi đến 4 AI (mở 4 tab rời rạc) → 3. Đọc câu trả lời + check claim → 4. So sánh đối thủ → 5. Tổng hợp vào Excel → 6. Viết báo cáo + check hallucination thủ công → 7. Đề xuất action không có bằng chứng
 
 **Chi phí ước lượng: ~30-35 triệu VND/tháng** (nhân sự + công cụ + chi phí cơ hội).
 

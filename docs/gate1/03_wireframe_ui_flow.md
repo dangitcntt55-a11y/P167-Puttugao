@@ -97,12 +97,16 @@ graph TD
 
 ```mermaid
 flowchart TD
-    START["🏠 Mở Dashboard"] --> OVERVIEW["Dashboard Overview\n(2 brand + đối thủ)"]
+    START["🏠 Mở Dashboard"] --> OVERVIEW["Dashboard Overview\n(1 sàn + 1 D2C + đối thủ)"]
     OVERVIEW --> |"Click brand"| BRAND["Brand Detail\n(Visibility, SOV, Trend)"]
-    OVERVIEW --> |"View gaps"| DIAG_LIST["Diagnosis List\n(Stability filtered)"]
+    OVERVIEW --> |"View gaps"| STAB_CHECK["Stability Gate\nN=3 lần/prompt"]
     
-    BRAND --> |"View gaps"| DIAG_LIST
+    BRAND --> |"View gaps"| STAB_CHECK
     BRAND --> |"Trigger scan"| SCAN["Scan Control\n(Manual trigger)"]
+    
+    STAB_CHECK --> |"Score ≥ 0.7"| DIAG_LIST["Diagnosis List\n(Stable gaps only)"]
+    STAB_CHECK --> |"Score < 0.7"| OBS["Observation Only\n(theo dõi, chưa diagnose)"]
+    OBS --> |"Tích lũy thêm data"| STAB_CHECK
     
     DIAG_LIST --> |"Click gap"| DIAG_DETAIL["Diagnosis Detail\n(Evidence Package)"]
     
@@ -113,8 +117,8 @@ flowchart TD
     ACTION --> |"Edit action"| ACTION
     ACTION --> |"Reject action"| DIAG_LIST
     
-    TASK --> |"Mark done"| RESCAN["Auto Re-scan\n(3 lần × 4 AI)"]
-    RESCAN --> EVAL["Evaluation Report\n(Pre/Post + CI)"]
+    TASK --> |"Mark done"| RESCAN["Auto Re-scan\n(N=3 lần × 4 AI)"]
+    RESCAN --> EVAL["Evaluation Report\n(Pre/Post + Bootstrap CI)"]
     
     EVAL --> |"Improved ✅"| DONE["Closed-loop Complete"]
     EVAL --> |"No evidence ⚠️"| REVIEW["Review & Retry"]
@@ -127,6 +131,8 @@ flowchart TD
     style START fill:#4F46E5,color:#fff
     style OVERVIEW fill:#4F46E5,color:#fff
     style BRAND fill:#7C3AED,color:#fff
+    style STAB_CHECK fill:#0EA5E9,color:#fff
+    style OBS fill:#6B7280,color:#fff
     style DIAG_LIST fill:#EC4899,color:#fff
     style DIAG_DETAIL fill:#F59E0B,color:#fff
     style ACTION fill:#10B981,color:#fff
@@ -153,9 +159,9 @@ flowchart TD
 │  │                                                                         │ │
 │  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌─────────────┐ │ │
 │  │  │ 📊 Brands    │  │ 🎯 Avg       │  │ ⚡ Stable    │  │ 🚨 Alerts  │ │ │
-│  │  │    2 target  │  │ Visibility   │  │ Gaps         │  │    3 new   │ │ │
-│  │  │    4 comp.   │  │   42.5%      │  │   28/45      │  │ (giá/ship) │ │ │
-│  │  │              │  │   ▲ +5.2%    │  │   62.2%      │  │            │ │ │
+│  │  │  2 target    │  │ Visibility   │  │ Gaps (≥0.7)  │  │    3 new   │ │ │
+│  │  │  (1sàn+1D2C) │  │   42.5%      │  │   28/45      │  │ (giá/ship) │ │ │
+│  │  │  ~8 comp.    │  │   ▲ +5.2%    │  │ 17 obs.only  │  │            │ │ │
 │  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘ │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
@@ -170,17 +176,17 @@ flowchart TD
 │  │    60% ┤  ╭──╮│  │╭──╮              │  │    Claude   [====█==]         │ │
 │  │    40% ┤──│  ││  ││  │──╮           │  │    Tavily   [=█=====]         │ │
 │  │    20% ┤  │  ││  ││  │  │           │  │                               │ │
-│  │     0% ┤──┴──┴┴──┴┴──┴──┴──         │  │  ■ Minh Long  ■ Lock&Lock    │ │
-│  │        ML  L&L Sun Kan Phi Tef      │  │  ■ Sunhouse   ■ Kangaroo     │ │
-│  │                                      │  │  ■ Philips    ■ Tefal        │ │
+│  │     0% ┤──┴──┴┴──┴┴──┴──┴──         │  │  ■ Brand A (sàn)             │ │
+│  │        B1  B2  B3  B4  B5  B6       │  │  ■ Brand B (D2C)             │ │
+│  │        (2 target + ~4 đối thủ)      │  │  ■ Đối thủ 1-4               │ │
 │  └──────────────────────────────────────┘  └───────────────────────────────┘ │
 │                                                                              │
 │  ┌─ Visibility Trend (30 ngày) ────────────────────────────────────────────┐ │
 │  │                                                                         │ │
 │  │   50% ┤         ╭──╮    ╭──────╮                                       │ │
-│  │   40% ┤    ╭────╯  ╰────╯      ╰──────── Minh Long                    │ │
+│  │   40% ┤    ╭────╯  ╰────╯      ╰──────── Brand A (sàn TMĐT)           │ │
 │  │   30% ┤────╯                                                           │ │
-│  │   20% ┤──────────────────────────────────── Lock&Lock                  │ │
+│  │   20% ┤──────────────────────────────────── Brand B (D2C)              │ │
 │  │   10% ┤                                                                 │ │
 │  │       ┴───┬───┬───┬───┬───┬───┬───┬───┬                                │ │
 │  │          W1  W2  W3  W4  (tuần)                                        │ │
@@ -191,10 +197,11 @@ flowchart TD
 │  │  Prompt                  │ ChatGPT │ Gemini │ Claude │ Tavily │ Stab.  │ │
 │  │  ────────────────────────┤─────────┤────────┤────────┤────────┤────────│ │
 │  │  "shop gia dụng uy t..." │  ✅ 1st  │  ❌     │  ✅ 3rd │  ✅ 2nd │  0.82 │ │
-│  │  "nồi chiên KD giá..."  │  ❌      │  ✅ 2nd │  ❌     │  ✅ 1st │  0.65 │ │
-│  │  "so sánh ML vs L&L..." │  ✅ 1st  │  ✅ 1st │  ✅ 2nd │  ✅ 1st │  0.91 │ │
-│  │  "ML có lừa đảo k..."   │  ⚠️ neg  │  ✅ pos │  ✅ pos │  ✅ pos │  0.74 │ │
+│  │  "nồi chiên KD giá..."  │  ❌      │  ✅ 2nd │  ❌     │  ✅ 1st │ ⚠️0.65│ │
+│  │  "so sánh A vs B..."    │  ✅ 1st  │  ✅ 1st │  ✅ 2nd │  ✅ 1st │  0.91 │ │
+│  │  "brand có lừa đảo?"    │  ⚠️ neg  │  ✅ pos │  ✅ pos │  ✅ pos │  0.74 │ │
 │  │  ...                     │         │        │        │        │        │ │
+│  │  ⚠️ = Stability < 0.7 → observation_only, chưa vào diagnosis           │ │
 │  │                          │         │        │        │ [Xem thêm →]    │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 └──────────────────────────────────────────────────────────────────────────────┘
@@ -219,13 +226,13 @@ flowchart TD
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
-│  ← Back to Dashboard        Brand Detail: Minh Long                    [⚙] │
+│  ← Back to Dashboard        Brand Detail: [Brand A — Sàn TMĐT]         [⚙] │
 ├──────────────────────────────────────────────────────────────────────────────┤
 │                                                                              │
 │  ┌─ Brand Info ────────────────────────────────────────────────────────────┐ │
-│  │  🏷 Minh Long (D2C)          Ngành: Đồ gia dụng                       │ │
-│  │  Shopee: ⭐ 4.8 (250K đơn)   Lazada: Active   Web: minhlong.com       │ │
-│  │  Biến thể: "Minh Long", "Minh Long Book", "MLB", "MinhLong"           │ │
+│  │  🏷 Brand A  (Loại: Sàn TMĐT)   Ngành: [Ngành hàng demo]              │ │
+│  │  Shopee: Active  Lazada: Active   Tiki: Active                         │ │
+│  │  Biến thể tên: 3+ biến thể (có dấu / không dấu / viết tắt)            │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ KPI Cards ─────────────────────────────────────────────────────────────┐ │
@@ -551,12 +558,13 @@ flowchart TD
 │                                                                              │
 │  ┌─ Manual Scan ───────────────────────────────────────────────────────────┐ │
 │  │                                                                         │ │
-│  │  Brand:        [Minh Long ▼]                                           │ │
-│  │  Prompt Group: [All ▼]                                                 │ │
-│  │  AI Engines:   ☑ ChatGPT  ☑ Gemini  ☑ Claude  ☑ Tavily               │ │
-│  │  Runs per prompt: [3 ▼]                                                │ │
+│  │  Brand:           [Brand A (sàn) ▼]                                    │ │
+│  │  Prompt Group:    [All ▼]   (~100 prompt tiếng Việt, 5 nhóm)           │ │
+│  │  AI Engines:      ☑ ChatGPT  ☑ Gemini  ☑ Claude  ☑ Tavily            │ │
+│  │  Runs per prompt: [3 ▼]  ← N=3 lần/prompt (demo); N=7-8 (production)  │ │
 │  │                                                                         │ │
-│  │  Est. prompts: 100  │  Est. API calls: 1,200  │  Est. cost: $0.28     │ │
+│  │  Est. prompts: 100  │  Est. API calls: 1,200  │  Est. cost: ≤$0.30    │ │
+│  │                  (100 prompt × N=3 lần × 4 AI engines)                 │ │
 │  │                                                                         │ │
 │  │                              [🚀 Start Scan]                            │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
@@ -565,17 +573,17 @@ flowchart TD
 │  │                                                                         │ │
 │  │  Scan ID │ Brand      │ Time        │ Prompts │ Responses │ Status     │ │
 │  │  ────────┤────────────┤─────────────┤─────────┤───────────┤────────    │ │
-│  │  SC-005  │ Minh Long  │ 02/08 14:30 │ 100     │ 1,200     │ ✅ Done   │ │
+│  │  SC-005  │ Brand A    │ 02/08 14:30 │ 100     │ 1,200     │ ✅ Done   │ │
 │  │  SC-004  │ All brands │ 01/08 09:00 │ 100     │ 1,200     │ ✅ Done   │ │
-│  │  SC-003  │ Lock&Lock  │ 30/07 14:00 │ 50      │ 600       │ ✅ Done   │ │
-│  │  SC-002  │ Minh Long  │ 28/07 09:00 │ 100     │ 1,180     │ ⚠️ Partial│ │
+│  │  SC-003  │ Brand B    │ 30/07 14:00 │ 100     │ 1,200     │ ✅ Done   │ │
+│  │  SC-002  │ Brand A    │ 28/07 09:00 │ 100     │ 1,180     │ ⚠️ Partial│ │
 │  │                                                                         │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
 │                                                                              │
 │  ┌─ Scheduled Scans ──────────────────────────────────────────────────────┐ │
+│  │  Chạy 1 lần/ngày — mỗi prompt được chạy N=3 lần/scan (stability)      │ │
 │  │                                                                         │ │
 │  │  ☑ Daily scan at 09:00  │  Brand: All  │  [Edit]                       │ │
-│  │  ☑ Daily scan at 14:00  │  Brand: All  │  [Edit]                       │ │
 │  │  ☑ Daily scan at 21:00  │  Brand: All  │  [Edit]                       │ │
 │  │                                                                         │ │
 │  └─────────────────────────────────────────────────────────────────────────┘ │
@@ -658,48 +666,61 @@ flowchart TD
 
 ## 13. User Flow Scenarios
 
-### 13.1. Scenario 1: Phát hiện hallucination giá
+> **Context chung:** Marketer hiện phải mở 4 tab AI riêng rạc, không biết đề xuất nào đáng tin (không có stability score), không có priority ranking có bằng chứng, và không có cách đo lại hiệu quả. 3 scenarios dưới đây minh họa cách hệ thống giải quyết các pain points đó.
+
+### 13.1. Scenario 1: Phát hiện hallucination giá (Pain point #2 + #5)
+
+> *Vấn đề: ChatGPT và Gemini đưa ra giá khác nhau cho cùng sản phẩm → không biết đề xuất nào đáng tin, không có cơ chế verify.*
 
 ```
-1. Marketer mở Dashboard → thấy Alert "AI nói sai giá"
+1. Marketer mở Dashboard → thấy Alert "AI nói sai giá" (Hallucination alert)
 2. Click Alert → chuyển đến Diagnosis Detail
-3. Xem 3 responses (3 lần chạy) → confirm sai ở ChatGPT
-4. Xem Evidence Package → Tavily confirm giá thật
+3. Xem 3 responses (N=3 lần chạy) → Stability Score 0.82 ≥ 0.7 → gap ổn định
+4. Xem Evidence Package: Tavily cross-check → giá thật từ Shopee + website chính hãng
 5. Click "Approve" → diagnosis vào Action Backlog
-6. Xem 3 actions đề xuất → Approve "listing_update"
+6. Xem 3 actions đề xuất → Approve "listing_update" (schema Product)
 7. Task tạo → Kanban Board (Todo)
-8. Content team sửa schema Product
-9. Đánh dấu task "Done"
-10. Hệ thống auto re-scan → Evaluation Report
-11. Verdict: "Improved Signal" ✅ (CI: [+12%, +24%])
+8. Dev team thêm schema.org/Product với giá chính xác
+9. Đánh dấu task "Done" (HITL xác nhận)
+10. Hệ thống auto re-scan (N=3 lần × 4 AI) → Evaluation Report
+11. Bootstrap 95% CI: [+12%, +24%] — vượt noise floor 5-7%
+12. Verdict: "Improved Signal" ✅ → closed-loop complete
 ```
 
-### 13.2. Scenario 2: Brand không được nhắc đến
+### 13.2. Scenario 2: Brand không được nhắc đến (Pain point #1 + #4)
+
+> *Vấn đề: Kết quả từ 4 AI phân tán, không có dashboard gộp. Không biết làm gì trước — không có priority ranking có citation.*
 
 ```
-1. Marketer mở Brand Detail → thấy "Missing Mention" ở prompt "top 5 shop uy tín"
-2. Stability Score = 0.91 → gap ổn định
-3. Click "View Diagnosis" → xem đối thủ nào được nhắc
-4. Evidence: thiếu schema.org, thiếu review Tinhte
-5. Action: "content_pr" (viết bài PR) + "outreach" (Tinhte review)
-6. Marketer approve → tasks vào Board
-7. Sau 1 tuần → mark Done → Re-scan
-8. Verdict: "No clear evidence" ⚠️ (CI overlap noise floor)
-9. Marketer review → thêm action mới
+1. Marketer mở Dashboard → thấy brand không xuất hiện trong SOV chart (4 tab gộp thành 1)
+2. Lọc theo prompt group "uy tín" → thấy gap ở prompt "top 5 shop uy tín"
+3. Stability Score = 0.91 ≥ 0.7 → gap ổn định, vào diagnosis
+4. Click "View Diagnosis" → xem đối thủ nào được nhắc (Philips #1, đối thủ B #2)
+5. Evidence package: thiếu schema.org Organization + Review, thiếu citation từ Tinhte
+6. Action có priority + citation URL: "content_pr" + "outreach" (Tinhte review)
+7. Marketer approve → tasks vào Board với evidence_url đính kèm
+8. Sau 1 tuần → mark Done → Re-scan tự động
+9. Bootstrap CI overlap với noise floor → Verdict: "No clear evidence" ⚠️
+10. Marketer review (không ép thành Improved) → thêm action mới từ evidence
 ```
 
-### 13.3. Scenario 3: Mùa sale 11.11
+### 13.3. Scenario 3: Đồng bộ kết quả đa-AI trước mùa sale (Pain point #1 + #3)
+
+> *Vấn đề: 4 AI đưa đề xuất khác nhau cho cùng brand, không có bối cảnh ngành VN. Marketer không biết đề xuất nào phù hợp mùa sale.*
 
 ```
-1. Marketer trigger Manual Scan trước 11.11
-2. Dashboard hiển thị baseline visibility
-3. Diagnosis: "AI không nhắc flash sale Minh Long"
-4. Action: "listing_update" (thêm structured data sale)
-5. Trigger Re-scan ngay sau 11.11
-6. Evaluation: So sánh visibility pre/post 11.11
-7. Report gửi CMO với ROI metrics
+1. Marketer trigger Manual Scan trước mùa sale (Scan Control)
+2. Dashboard gộp kết quả 4 AI (ChatGPT, Gemini, Claude, Tavily) vào 1 nơi
+3. Diagnosis: 4 AI đưa prompt về sale khác nhau → Stability Score 0.62 < 0.7
+4. Gap được đánh "observation_only" (chưa đủ ổn định để diagnose)
+5. Sau 3 ngày tích lũy thêm data → Stability Score lên 0.78 → vào Diagnosis
+6. Evidence: AI thiếu context "flash sale" vì website chưa có structured data Sale
+7. Action: "listing_update" (thêm schema.org/Offer với Sale start/end date)
+8. Trigger Re-scan ngay sau khi deploy → Evaluation Report
+9. CI: [+8%, +22%] → vượt noise floor → Verdict: "Improved Signal" ✅
+10. Report export PDF gửi CMO với pre/post chart + bootstrap CI
 ```
 
 ---
 
-> 📌 **Ghi chú:** Wireframe này là low-fidelity, sẽ được refine trong quá trình phát triển. Hải phụ trách implementation trong Next.js 14 + Tailwind CSS + Recharts.
+> 📌 **Ghi chú:** Wireframe này là low-fidelity, sẽ được refine trong quá trình phát triển. Hải phụ trách implementation trong Next.js 14 + Tailwind CSS + Recharts. Brand cụ thể (1 sàn + 1 D2C) sẽ được confirm ở Tuần 0.

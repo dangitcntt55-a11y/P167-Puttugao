@@ -39,7 +39,17 @@ Xây dựng một **AI Agent Platform** giúp SME E-commerce Việt Nam **theo d
 
 ### 1.3. Vấn đề cần giải quyết
 
-SME E-commerce Việt Nam dành ~80 giờ/tháng để thủ công theo dõi AI visibility cho 2 brand, với tỷ lệ sót mention 10-20% và sót hallucination giá/ship 20-30%. Không có công cụ nào chuyên biệt cho E-commerce VN ở mức giá phù hợp.
+SME E-commerce Việt Nam đang phải đối mặt với 5 pain points chưa có công cụ giải quyết:
+
+| # | Pain Point | Lý do cần giải |
+|---|------------|---------------|
+| 1 | Kết quả từ nhiều AI bị phân tán (ChatGPT, Gemini, Claude, Tavily chạy rời rạc) | Marketer không có dashboard gộp, phải mở 4 tab mỗi lần check |
+| 2 | Các mô hình AI đưa ra đề xuất khác nhau cho cùng 1 prompt | Không biết đề xuất nào đáng tin, không có cơ chế đo độ ổn định |
+| 3 | Đề xuất AI thiếu bối cảnh doanh nghiệp (ngành hàng, đối thủ, prompt đặc thù VN) | Tool quốc tế (Semrush, Ahrefs) dùng prompt pattern US/EU, không cover câu hỏi tiếng Việt |
+| 4 | Nhiều đề xuất nhưng không biết làm gì trước | Không có priority ranking, không gắn với citation/bằng chứng |
+| 5 | Khó đánh giá độ tin cậy của đề xuất AI | Không có stability score, không có evidence-grounded, không có closed-loop để verify |
+
+Hệ quả: Marketing Manager dành **~80 giờ/tháng** thủ công theo dõi AI visibility cho 2 brand, với tỷ lệ sót mention 10-20% và sót hallucination giá/ship 20-30%. Không có công cụ nào chuyên biệt cho E-commerce VN ở mức giá phù hợp.
 
 ### 1.4. Giải pháp
 
